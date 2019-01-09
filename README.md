@@ -1,3 +1,3 @@
 # publishing_sphere
 
-Pierre <3 
+Read me 
