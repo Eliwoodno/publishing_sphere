@@ -15,8 +15,9 @@ foreach ( glob( THEME_PATH . "/inc/*.php" ) as $file ) {
 function register_my_menus() {
  register_nav_menus(
  array(
- 'header-menu' => __( 'Menu header' ),
+ 'header-menu' => __( 'Menu Header' ),
  'footer-menu' => __( 'Menu Footer' ),
+ 'language-menu' => __( 'Language' ),
  )
  );
 }
