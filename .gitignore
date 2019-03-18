@@ -5,3 +5,7 @@
 !wp-content
 
 
+# Ignore tout à la racine, sauf .gitignore et "wp-content"
+*
+!.gitignore
+!wp-content
