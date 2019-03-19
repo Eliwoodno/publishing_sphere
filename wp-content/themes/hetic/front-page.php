@@ -39,7 +39,7 @@ endif; ?>
 
 <!-- Direct  -->
   
-<?php the_field('youtube')?>; ?>
+<?php the_field('youtube'); ?>
 
 <!-- Partenaires  -->
 
