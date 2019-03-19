@@ -35,9 +35,11 @@ if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_
 
 <?php
 endwhile;
-endif; ?> 
+endif; ?>
 
 <!-- Direct  -->
+  
+<?php the_field('youtube')?>; ?>
 
 <!-- Partenaires  -->
 

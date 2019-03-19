@@ -37,3 +37,11 @@ function wpc_mime_types($mimes) {
 	return $mimes;
 }
 add_filter('upload_mimes', 'wpc_mime_types');
+
+//Api google map
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyCpfL-KU8u7NA5QURFxJL9nkld6_V2biIM');
+}
+
+add_action('acf/init', 'my_acf_init');
