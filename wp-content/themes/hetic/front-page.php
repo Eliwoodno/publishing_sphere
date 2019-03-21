@@ -38,12 +38,11 @@ endwhile;
 endif; ?>
 
 <!-- Direct  -->
-  
+<?php the_field('titre_difusion'); ?> 
 <?php the_field('youtube'); ?>
 
 <!-- Partenaires  -->
-
-Partenaires</br>
+<?php the_field('titre_sponsors'); ?> 
 
 <?php $args = array('post_type' => 'partenaire');
 
