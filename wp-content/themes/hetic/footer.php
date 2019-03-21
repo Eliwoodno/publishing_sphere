@@ -22,8 +22,20 @@
 
 
        wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); 
+        
+         if(get_bloginfo('language') == "fr-FR") : 
+          
+           $contact = get_field('contact_fr', 'options'); 
+           echo($contact['titre_contact']);
+           echo($contact['email']);
+          
+      else :
+          
+           $contact = get_field('contact_en', 'options'); 
+           echo($contact['titre_contact']);
+           echo($contact['email']);
 
-
+      endif;
         
         if( have_rows('reseaux_sociaux', 'options') ):
           while ( have_rows('reseaux_sociaux', 'options') ) : the_row();
@@ -37,6 +49,7 @@
         else :
 
         endif; ?>
+          
        </footer>
     </body>
 </html>
