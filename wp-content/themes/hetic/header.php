@@ -11,12 +11,14 @@
 
     <?php wp_head(); ?>
 </head>
-<header>
-  <body <?php body_class(); ?>>
-     <a href="<?php echo home_url(); ?>">
-            <img src="<?php the_field('logo', 'options'); ?>" alt="<?php the_field('alt_logo', 'options'); ?>">
-     </a>
+<body <?php body_class(); ?>>
+  <header>
+    <div>
+      <a href="<?php echo home_url(); ?>">
+        <img class="logo" src="<?php the_field('logo', 'options'); ?>" alt="<?php the_field('alt_logo', 'options'); ?>">
+      </a>
   
-          <? wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
-          <? wp_nav_menu( array( 'theme_location' => 'language-menu' ) ); ?>
-</header>
+      <div><? wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?></div>
+      <div><? wp_nav_menu( array( 'theme_location' => 'language-menu' ) ); ?></div>
+    </div>
+  </header>

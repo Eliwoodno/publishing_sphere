@@ -2,14 +2,15 @@
 <?php $bandeau = get_field('bandeau'); ?>  
 
 <!-- Bandeau  -->
-bandeau </br>
-<?php if ($bandeau):
+<?php if ($bandeau):?>
+  <div>
+    <div class="main_banner" style="background-image: url(' <? echo $bandeau['image']['url']?>');" title="<? echo $bandeau['image']['alt'];?>" >
+      <? echo $bandeau['texte'] ?>
+    </div>
+    
+  </div>
 
-echo $bandeau['image']['url']; //Bandeau img
-echo $bandeau['image']['alt'];
-echo $bandeau['texte'];  //Bandeau Texte
-
-endif; ?>
+<?endif; ?>
 
 <!-- Evenements  -->
 Evenements </br>

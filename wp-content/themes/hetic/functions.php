@@ -6,6 +6,7 @@ define( 'CSS_URL' ,             THEME_URL .    '/assets/styles'       );
 define( 'IMAGES_URL' ,          THEME_URL .    '/assets/images'       );
 define( 'JS_URL' ,              THEME_URL .    '/assets/scripts'      );
 define( 'FAVICONS_URL' ,        THEME_URL .    '/assets/favicon'      );
+define( 'FONTS_URL' ,           THEME_URL .    '/assets/fonts'      );
 define( 'ADMIN_IMAGES_URL' ,    IMAGES_URL .   '/admin'             );
 foreach ( glob( THEME_PATH . "/inc/*.php" ) as $file ) {
     include_once $file;
