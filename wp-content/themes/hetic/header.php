@@ -13,7 +13,7 @@
 </head>
 <body <?php body_class(); ?>>
   <header>
-    <div>
+    <div class="flex-container">
       <a href="<?php echo home_url(); ?>">
         <img class="logo" src="<?php the_field('logo', 'options'); ?>" alt="<?php the_field('alt_logo', 'options'); ?>">
       </a>

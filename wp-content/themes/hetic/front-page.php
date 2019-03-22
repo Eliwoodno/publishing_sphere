@@ -39,25 +39,44 @@ endwhile;
 endif; ?>
 
 <!-- Direct  -->
-<?php the_field('titre_diffusion'); ?> 
+
+<h4><? echo the_field('titre_diffusion'); ?></h4> 
+<div class="stream_wrapper">
 <?php the_field('youtube'); ?>
+</div>
 
 <!-- Partenaires  -->
-<?php the_field('titre_sponsors'); ?> 
+<h4><? echo the_field('titre_sponsors'); ?></h4> 
+<div class="sponsor-slider">
+  <div class="next"></div>
+  <div class="previous"></div>
 
-<?php $args = array('post_type' => 'partenaire');
 
-$my_query = new WP_Query($args);
+<?php $args = array('post_type' => 'partenaire');?>
 
-if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
+<?$my_query = new WP_Query($args);
 
-$image = get_field('image_partenaire'); 
-echo $image['alt']; //Alt de l'image du partenaire
-echo $image['url']; // Url de l'image du partenaire
-the_field('lien_partenaire'); //Lien du site du partenaire
+if($my_query->have_posts()) : $counter=0; $numerator=0; while ($my_query->have_posts() ) : $my_query->the_post();
 
+  if ($counter % 3 == 0){
+    echo ("<div class='slide' data-slide=".$numerator.">");
+    
+  }
+  $image = get_field('image_partenaire');?>
+  <a href="<?echo the_field('lien_partenaire');?>"><img src="<? echo $image['url']; ?>" alt="<? echo $image['alt']; ?>"></a>
+  <?
+  if ((($counter+1) % 3 == 0 )||(($my_query->current_post +1) == ($my_query->post_count))){
+    echo ("</div>");
+    $numerator++;
+  }
+  
+  $counter++;
+  
 endwhile;
 endif; ?>
+</div>
+
+
 
 
 <?php get_footer(); ?>

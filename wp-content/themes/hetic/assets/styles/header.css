@@ -17,7 +17,7 @@ header{
     z-index:1000;
     
 }
-header > div{
+header > .flex-container{
     height:inherit;
     display:flex;
     flex-direction: row;
