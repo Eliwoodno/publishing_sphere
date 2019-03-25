@@ -19,7 +19,6 @@ previous.addEventListener('click', (event) =>
     }else{
       i = slides.length -1
     }
-    console.log(i)
     slides[i].classList.add('active')
 })
 
@@ -32,7 +31,6 @@ next.addEventListener('click', (event) =>
     }else{
       i = 0
     }
-    console.log(i)
     slides[i].classList.add('active')
 })
 }

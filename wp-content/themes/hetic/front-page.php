@@ -13,7 +13,7 @@
 <?endif; ?>
 
 <!-- Evenements  -->
-Evenements </br>
+
 <?php $args = array('post_type' => 'evenement');
   
 $my_query = new WP_Query($args); 
@@ -32,7 +32,7 @@ if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_
     the_field('heure_evenement'); //Heure de l'evenement
 	wp_reset_postdata();
 ?>
-</br>
+
 
 <?php
 endwhile;

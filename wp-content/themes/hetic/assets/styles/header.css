@@ -34,7 +34,7 @@ header ul{
 }
 header > div > div:first-of-type{
     flex: 1;
-    margin: 0 5%;
+    margin: 0 5% 0 3%;
 }
 header ul li a:hover{
     color:#D43B3A;
@@ -47,6 +47,9 @@ header ul li a:hover{
 header .logo{
     width: 64px;
     height:64px;
+}
+header > .flex-container > a{
+    font-size: 0;
 }
 
 @media (max-width: 992px) { 
