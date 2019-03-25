@@ -13,7 +13,7 @@
           
       <?else :
           
-          $about_us = get_field('a_propos', 'options'); ?>
+          $about_us = get_field('about_us', 'options'); ?>
           <h5><?echo($about_us['titre']);?></h5>
           <p><?echo($about_us['texte']);?></p>
           <a href='<?echo($about_us['lien']); ?>'><?echo($about_us['texte_lien']);?></a> 
