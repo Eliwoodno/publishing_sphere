@@ -15,7 +15,7 @@ header{
     font-size: 14px;
     font-family: Gotham-Book;
     z-index:1000;
-    position: relative;
+    
     
 }
 header > .flex-container{

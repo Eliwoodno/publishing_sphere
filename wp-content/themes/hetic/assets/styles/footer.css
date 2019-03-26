@@ -68,23 +68,39 @@ footer .social_media img{
     width: 20px;
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 768px) { 
     footer .flex-container{
-        flex-flow:wrap;
+        
+        flex-direction: column;
         
     }
-    footer > .flex-container > div:nth-child(1){
-        flex:50%;
+    footer .flex-container >div, .social_media{
+        margin-bottom: 20px;
     }
-    footer > .flex-container > div:nth-child(2){
-        flex:50%;
+    footer .flex-container ul{
+        justify-content: flex-start;  
+        flex-flow:wrap;  
+    }
+    footer .flex-container ul ul{
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    footer .flex-container > div > ul >li{
+        width: 100%;
+        
+    }
+    footer .flex-container ul >li >ul >li{
+        display: inline;
+        
+        
     }
     footer > .flex-container > div:nth-child(3){
         flex:100%;
-        flex-direction: row;
     }
     footer .contact, footer .social_media{
         flex: 50%;
 
     }
- }
+ } 
