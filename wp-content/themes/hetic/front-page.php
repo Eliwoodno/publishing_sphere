@@ -14,15 +14,39 @@
 
 <!-- Evenements  -->
 
+
 <?php $args = array('post_type' => 'evenement');
-  
+
+
+
+$termsJour = get_terms( array('taxonomy' => 'jour') );
+
+print_r($termsJour[0]->name);  //Affichage des jours pour le trie
+print_r($termsJour[2]->name);
+print_r($termsJour[1]->name);
+
+$termsLieu = get_terms( array('taxonomy' => 'lieu') );
+
+print_r($termsLieu[0]->name); //Affichage des lieux pour le trie
+print_r($termsLieu[1]->name);
+
 $my_query = new WP_Query($args); 
 
-if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
+if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post(); ?>
+</br>
+</br>
+<?php
+    $id = get_the_ID();
 
-	$category = get_the_category();
-	echo $category[0]->slug; //A mettre dans la classe de la div
-    echo $category[1]->slug;  // A mettre dans la classe de la div
+    $jourSlug = get_the_terms($id, 'jour'); // Jour de l'evenement en slug -> a mettre dans le nom de classe
+    $jour = $jourSlug[0]->slug;
+    echo($jour);
+
+    $lieuSlug = get_the_terms($id, 'lieu');  // Lieu de l'evenement en slug -> a mettre dans le nom de classe
+    $lieu = $lieuSlug[0]->slug;
+    echo($lieu);
+
+
     the_title();  // Titre de l'évenement 
     
     $image = get_field('image_evenement'); 
@@ -30,7 +54,7 @@ if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_
     echo $image['url']; // Url de l'image de l'évenement
 
     the_field('heure_evenement'); //Heure de l'evenement
-	wp_reset_postdata();
+	wp_reset_postdata(); 
 ?>
 
 
