@@ -33,7 +33,7 @@ $termsJour = get_terms( array(
 </ul>
 
 <?$termsLieu = get_terms( array('taxonomy' => 'lieu') );?>
-<ul class="date_filters">
+<ul class="place_filters">
 <?for ($i = 0; $i < sizeof($termsLieu); $i++) {?>
   <li class="<?echo($termsLieu[$i]->slug);?>">
      <? echo($termsLieu[$i]->name);?>
