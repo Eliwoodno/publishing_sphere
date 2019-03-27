@@ -40,6 +40,7 @@ $termsJour = get_terms( array(
 </ul>
 
 <?
+$termsType = get_terms( array('taxonomy' => 'type_event') );
 print_r($termsType[0]->name); //Affichage des lieux pour le trie
 print_r($termsType[1]->name);
 
