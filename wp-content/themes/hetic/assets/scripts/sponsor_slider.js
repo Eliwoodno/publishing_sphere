@@ -2,13 +2,14 @@ let next = document.querySelector('.sponsor-slider .next')
 let previous = document.querySelector('.sponsor-slider .previous')
 let slides =  document.querySelectorAll('.sponsor-slider .slide')
 let slider =  document.querySelector('.sponsor-slider')
-let i =0
+
 
 
 
 const sliderNav = () => {
 slides[0].classList.add('active')
 
+let i =0
 previous.addEventListener('click', (event) =>
 {
     event.stopPropagation()
@@ -34,5 +35,5 @@ next.addEventListener('click', (event) =>
 })
 }
 sliderNav();
-
+//lol
 

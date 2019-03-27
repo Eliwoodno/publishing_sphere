@@ -13,6 +13,10 @@
     the_field('lieu_evenement');
     the_field('presentation_evenement');
 
+    $typeSlug = get_the_terms($id, 'type_event'); // Type de l'event
+    $type = $typeSlug[0]->slug;
+    echo($type);
+
     $args = array('post_type' => 'intervenant'); //Boucle sur les intervenants
     $my_query = new WP_Query($args); 
 

@@ -9,7 +9,6 @@
     text-transform: uppercase;
     color: #FFFFFF;
     position: relative;
-    text-align: center;
 }
 .main_banner::before{
     content:"";
@@ -88,8 +87,8 @@
     align-items: center;
     position:absolute;
     top:0;
-    left: 0%;
-    width: 100%;
+    left: 5%;
+    width: 90%;
     height: 100%;
     z-index:1;
     opacity:0;

@@ -19,29 +19,23 @@
 
 
 
-$termsJour = get_terms( array(
-'taxonomy' => 'jour',
-'orderby' => 'ID',
-'order' => 'ASC') );?>
+$termsJour = get_terms( array('taxonomy' => 'jour') );
 
-<ul class="date_filters">
-<?for ($i = 0; $i < sizeof($termsJour); $i++) {?>
-   <li class="<?echo($termsJour[$i]->slug);?>">
-     <? echo($termsJour[$i]->name);?>
-   </li>
-<?}?>
-</ul>
+print_r($termsJour[0]->name);  //Affichage des jours pour le trie
+print_r($termsJour[2]->name);
+print_r($termsJour[1]->name);
 
-<?$termsLieu = get_terms( array('taxonomy' => 'lieu') );?>
-<ul class="date_filters">
-<?for ($i = 0; $i < sizeof($termsLieu); $i++) {?>
-  <li class="<?echo($termsLieu[$i]->slug);?>">
-     <? echo($termsLieu[$i]->name);?>
-   </li>
-<?}?>
-</ul>
+$termsLieu = get_terms( array('taxonomy' => 'lieu') );
 
-<?$my_query = new WP_Query($args); 
+print_r($termsLieu[0]->name); //Affichage des lieux pour le trie
+print_r($termsLieu[1]->name);
+
+$termsType = get_terms( array('taxonomy' => 'type_event') );
+
+print_r($termsType[0]->name); //Affichage des lieux pour le trie
+print_r($termsType[1]->name);
+
+$my_query = new WP_Query($args); 
 
 if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post(); ?>
 </br>
@@ -57,6 +51,10 @@ if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_
     $lieu = $lieuSlug[0]->slug;
     echo($lieu);
 
+    $typeSlug = get_the_terms($id, 'type_event');  // Lieu de l'evenement en slug -> a mettre dans le nom de classe
+    $type = $typeSlug[0]->slug;
+    echo($type);
+
 
     the_title();  // Titre de l'évenement 
     
@@ -65,7 +63,6 @@ if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_
     echo $image['url']; // Url de l'image de l'évenement
 
     the_field('heure_evenement'); //Heure de l'evenement
-    echo(the_permalink());
 	wp_reset_postdata(); 
 ?>
 
