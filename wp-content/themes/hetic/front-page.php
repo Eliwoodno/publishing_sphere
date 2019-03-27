@@ -17,29 +17,18 @@
 
 <?php $args = array('post_type' => 'evenement');
 
-$termsJour = get_terms( array(
-'taxonomy' => 'jour',
-'orderby' => 'ID',
-'order' => 'ASC') );?>
+$termsJour = get_terms( array('taxonomy' => 'jour') );
 
-<ul class="date_filters">
-<?for ($i = 0; $i < sizeof($termsJour); $i++) {?>
-   <li class="<?echo($termsJour[$i]->slug);?>">
-     <? echo($termsJour[$i]->name);?>
-   </li>
-<?}?>
-</ul>
+print_r($termsJour[0]->name);  //Affichage des jours pour le trie
+print_r($termsJour[2]->name);
+print_r($termsJour[1]->name);
 
-<?$termsLieu = get_terms( array('taxonomy' => 'lieu') );?>
-<ul class="place_filters">
-<?for ($i = 0; $i < sizeof($termsLieu); $i++) {?>
-  <li class="<?echo($termsLieu[$i]->slug);?>">
-     <? echo($termsLieu[$i]->name);?>
-   </li>
-<?}?>
-</ul>
+$termsLieu = get_terms( array('taxonomy' => 'lieu') );
 
-<?
+print_r($termsLieu[0]->name); //Affichage des lieux pour le trie
+print_r($termsLieu[1]->name);
+
+$termsType = get_terms( array('taxonomy' => 'type_event') );
 print_r($termsType[0]->name); //Affichage des lieux pour le trie
 print_r($termsType[1]->name);
 
