@@ -42,7 +42,7 @@ add_filter('upload_mimes', 'wpc_mime_types');
 //Api google map
 function my_acf_init() {
 	
-	acf_update_setting('google_api_key', 'AIzaSyCpfL-KU8u7NA5QURFxJL9nkld6_V2biIM');
+	acf_update_setting('google_api_key', 'AIzaSyDPV50lCLom1TEWwL9t2Z2W29wgiRCiJeY');
 }
 
 add_action('acf/init', 'my_acf_init');
