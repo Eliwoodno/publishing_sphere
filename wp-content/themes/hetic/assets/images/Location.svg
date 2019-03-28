@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="17px" viewBox="0 0 11 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Location</title>
+    <desc>Created with Sketch.</desc>
+    <g id="V.03-typeface" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home---Tag_inactive" transform="translate(-225.000000, -600.000000)" fill="#4A4A4A" fill-rule="nonzero">
+            <g id="Planning" transform="translate(68.000000, 489.000000)">
+                <g id="Filter-list" transform="translate(2.000000, 85.000000)">
+                    <g id="Lieu" transform="translate(155.000000, 0.000000)">
+                        <g id="Content" transform="translate(0.000000, 26.000000)">
+                            <path d="M5.5,0 C2.613875,0 0,2.41045833 0,5.38475 C0,8.35833333 2.3849375,11.9085 5.5,17 C8.6150625,11.9085 11,8.35833333 11,5.38475 C11,2.41045833 8.3868125,0 5.5,0 Z M5.5,7.79166667 C4.3608125,7.79166667 3.4375,6.840375 3.4375,5.66666667 C3.4375,4.49295833 4.3608125,3.54166667 5.5,3.54166667 C6.6391875,3.54166667 7.5625,4.49295833 7.5625,5.66666667 C7.5625,6.840375 6.6391875,7.79166667 5.5,7.79166667 Z" id="Location"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -9,6 +9,7 @@
     text-transform: uppercase;
     color: #FFFFFF;
     position: relative;
+    margin-bottom: 80px;
 }
 .main_banner::before{
     content:"";
@@ -125,7 +126,119 @@ h4 {
     padding-left: 5%;
     margin-bottom: 30px;
     text-transform: uppercase;
+    position: relative;
+}
+h4.dark_filet::before{
+    content:"";
+    position:absolute;
+    width: 80px;
+    height: 8px;
+    background-color: black;
+    left:5%;
+    top:-20px;
 }
 iframe{
     width:100%;
 }
+
+
+.planning_container{
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding-right:5%;
+    padding-left:5%;
+    grid-gap: 2%;
+    width:90%;   
+}
+.planning_container .event_box{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    box-shadow: 0px 2px 9px 0px rgba(226,226,226,1);
+    background-color:white;
+    font-family:Gotham-Medium;
+    margin-bottom: 20px;
+}
+
+.planning_container .event_box .event_img{
+    width:100%;
+    height: 150px;
+    background-size: cover;
+    background-position-y: center;
+}
+.planning_container .event_box h4.event_title{
+    
+    font-size:16px;
+    line-height: 20px;
+    font-weight: lighter;
+    padding:20px 20px 60px 20px;
+    margin: 0;
+}
+.planning_container .event_box p.event_hours{
+    color:#9B9B9B;
+    font-size:16px;
+    font-weight: lighter;
+    position: absolute;
+    left:20px;
+    bottom:20px;
+}
+
+.planning_container +h4 {
+    margin-top:60px;
+}
+.planning_container .event_link {
+    display:flex;
+    flex-direction:column;
+    text-decoration: none;
+    color:black;
+}
+
+.filter_container{
+    width:35%;
+    padding-left:5%;
+    display: flex;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.filter_container >div{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.filter_container ul{
+   list-style: none;
+   font-family:Gotham-Book;
+   font-size:14px;
+   z-index:1;
+   position: relative;
+}
+.filter_container img{
+    margin-right: 10px;
+}
+
+.filter_container img.date-svg{
+    width:24px;
+ }
+ .filter_container img.location-svg{
+    width:16px;
+ }
+ .filter_container img.type-svg{
+    width:16px;
+ }
+.filter_container select{
+    -webkit-appearance: none;
+    border: none;
+    background-color:white;
+    font-family: Gotham-Book;
+    font-size: 14px;
+}
+.filter_container .filter_title{
+    font-family: Gotham-Bold;
+    color: #9B9B9B;
+    font-size: 16px;
+    margin-bottom: 15px;
+
+}
+

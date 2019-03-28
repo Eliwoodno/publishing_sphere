@@ -18,6 +18,7 @@
 <?php $args = array('post_type' => 'evenement',
                     'taxonomy' => 'jour'
 );
+
 $termsJour = get_terms( array(
 'taxonomy' => 'jour',
 'orderby' => 'ID',
