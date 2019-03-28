@@ -67,24 +67,109 @@ footer .menu > li > a{
 footer .social_media img{
     width: 20px;
 }
+footer{
+    min-height: 240px;
+    width: 90%;
+    padding: 0 5%;
+    font-family: Gotham-book;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color:#000000 !important;
+    padding-top:40px;
+    
 
-@media (max-width: 992px) { 
+    
+}
+footer .flex-container{
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+footer h5{
+    text-transform: uppercase;
+    color: #D43B3A;
+    font-family: Gotham-Medium;
+    font-size: 16px;
+    font-weight: normal;
+}
+footer ul{
+    list-style: none;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+footer > .flex-container > div{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    
+}
+footer > .flex-container > div:nth-child(1){
+    flex:30%;
+    
+}
+footer > .flex-container > div:nth-child(2){
+    flex:50%;
+}
+footer > .flex-container > div:nth-child(3){
+    flex:20%;
+}
+footer ul.menu{
+    justify-content: center;
+    display: flex;
+}
+footer p, footer a{
+    line-height: 34px;
+}
+footer .menu > li > a{
+    text-transform: uppercase;
+    color: #D43B3A;
+    font-family: Gotham-Medium;
+    font-size: 16px;
+    line-height: 16px;
+}
+footer .social_media img{
+    width: 20px;
+}
+
+@media (max-width: 768px) { 
     footer .flex-container{
-        flex-flow:wrap;
+        
+        flex-direction: column;
         
     }
-    footer > .flex-container > div:nth-child(1){
-        flex:50%;
+    footer .flex-container >div, .social_media{
+        margin-bottom: 20px;
     }
-    footer > .flex-container > div:nth-child(2){
-        flex:50%;
+    footer .flex-container ul{
+        justify-content: flex-start;  
+        flex-flow:wrap;  
+    }
+    footer .flex-container ul ul{
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    footer .flex-container > div > ul >li{
+        width: 100%;
+        
+    }
+    footer .flex-container ul >li >ul >li{
+        display: inline;
+        
+        
     }
     footer > .flex-container > div:nth-child(3){
         flex:100%;
-        flex-direction: row;
     }
     footer .contact, footer .social_media{
         flex: 50%;
 
     }
- }
+ } 
