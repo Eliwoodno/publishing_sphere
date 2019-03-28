@@ -59,7 +59,7 @@ $termsType = get_terms( array('taxonomy' => 'type_event') );?>
 <select class="type_filters filters" data-filter='type'>
 <option value="">All</option>
 <?for ($i = 0; $i < sizeof($termsType); $i++) {?>
-  <option data-type="<?echo($termsType[$i]->slug);?>" >
+  <option value="<?echo($termsType[$i]->slug);?>" >
      <? echo($termsType[$i]->name);?>
 </option>
 <?}?>

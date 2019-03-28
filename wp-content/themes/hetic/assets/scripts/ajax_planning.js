@@ -19,7 +19,7 @@ for(let i=0; i<filters.length; i++){
     activeFilters.type = filters[i].value
    }
   let eventRequest = new XMLHttpRequest();
-  eventRequest.open('GET', 'wp-json/wp/v2/event?filter[jour]='+ activeFilters.date +'&filter[lieu]=' + activeFilters.location+'&filter[event_type]='+ activeFilters.type);
+  eventRequest.open('GET', 'wp-json/wp/v2/event?filter[jour]=' + activeFilters.date + '&filter[lieu]=' + activeFilters.location+ '&filter[type_event]=' + activeFilters.type);
   eventRequest.onload = function() {
     if (eventRequest.status >= 200 && eventRequest.status < 400) {
       data = (JSON.parse(eventRequest.responseText)) //renderHTML(eventData)
