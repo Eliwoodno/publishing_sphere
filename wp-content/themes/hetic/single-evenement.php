@@ -29,20 +29,20 @@
            $image = get_field('photo_intervenant');
 
           if( $postsEvent ):
-            $test = 0; ?>
+            $incre = 0; ?>
    
             <?php foreach( $postsEvent as $post): ?>
             <?php 
                 if( get_the_title() == $pageActu ):
         
-                  $test += 1;
+                  $incre += 1;
                 else:
-                  $test += 0;
+                  $incre += 0;
                 endif;
               endforeach; ?>
     <?php endif;
 
-  if($test == 1):
+  if($incre == 1):
     
   echo($title);
   echo($permalink);

@@ -7,6 +7,7 @@ Template Name: Archives
 <?php get_header(); ?>
 <?php 
 
+
 if( have_rows('archives') ):
 
  	// loop through the rows of data
@@ -37,7 +38,7 @@ if( have_rows('archives') ):
          echo $contenu['description_image'];
          echo $contenu['image']['url'];
          echo $contenu['image']['alt'];
-    
+
       endif;
 ?> </br></br> <?php 
 
@@ -46,7 +47,7 @@ if( have_rows('archives') ):
 
 else :
 
-    // no rows found
+the_field('texte_information');
 
 endif;
 
