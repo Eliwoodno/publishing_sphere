@@ -51,8 +51,7 @@ $termsJour = get_terms( array(
 </select>
 </div>
 
-<?
-$termsType = get_terms( array('taxonomy' => 'type_event') );?>
+<? $termsType = get_terms( array('taxonomy' => 'type_event') );?>
 
 <div>
 <div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/Location.svg') ?>'>TYPE</div>
@@ -66,6 +65,25 @@ $termsType = get_terms( array('taxonomy' => 'type_event') );?>
 </select>
 </div>
 </div>
+
+<? $termsTag = get_terms( array('taxonomy' => 'tag_event') );?>
+
+
+<!-- NOUVEAU SELECTEUR DE TAG SUR LA HOME PAGE --> 
+<div>
+<div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/Location.svg') ?>'>TAG</div>
+<select class="type_filter filters" data-filter='type'>
+<option value="">All</option>
+<?for ($i = 0; $i < sizeof($termsTag); $i++) {?>
+  <option value="<?echo($termsTag[$i]->slug);?>" >
+     <? echo($termsTag[$i]->name);?>
+</option>
+<?}?>
+</select>
+</div>
+</div>
+
+<!-- FIN --> 
 
 <div class="planning_container">
 <?$my_query = new WP_Query($args); 
