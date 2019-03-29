@@ -35,6 +35,15 @@ function ajout_css_js(){
   wp_register_style( 'hamb_style', get_template_directory_uri() . '/assets/styles/hamburger.css' );
   wp_enqueue_style( 'hamb_style' );
 
+  wp_register_style( 'single_event_style', get_template_directory_uri() . '/assets/styles/single_event.css' );
+  wp_enqueue_style( 'single_event_style' );
+
+  wp_register_style( 'single_speaker_style', get_template_directory_uri() . '/assets/styles/single_speaker.css' );
+  wp_enqueue_style( 'single_speaker_style' );
+  
+  wp_register_style( 'speaker_list_style', get_template_directory_uri() . '/assets/styles/speaker_list.css' );
+  wp_enqueue_style( 'speaker_list_style' );
+
 }
  
 

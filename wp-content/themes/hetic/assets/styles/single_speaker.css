@@ -1,0 +1,141 @@
+.speaker_content{
+    width: 90%;
+    padding:0 5% 0 5%;
+    display: flex;
+    margin-top:80px;
+    margin-bottom: 50px;
+    
+}
+.speaker_content .speaker_img{
+    width: 420px;
+    height:420px;
+    background-size:cover;
+    flex-shrink: 0;
+}
+.speaker_text{
+    flex:30%;
+    padding: 0px 60px 0px 60px;
+}
+.speaker_text h1 {
+    font-family: Lack-Regular;
+    font-size:24px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    
+    
+
+}
+.speaker_text h3 {
+    font-family: Gotham-Light;
+    font-size:14px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+}
+.speaker_text p {
+    font-family: Gotham-Light;
+    font-size:14px;
+    line-height: 24px;
+
+}
+.speaker_text a {
+    font-family: Gotham-XLight;
+    font-size:16px;
+    color:black;
+    text-decoration: underline;
+
+}
+.speaker_links {
+    margin-top: 30px;
+}
+.speaker_links a {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 992px) { 
+    .speaker_content{
+    flex-wrap: wrap;
+    }
+    .speaker_text{
+        padding: 30px 60px 0px 0px;
+        flex: 100%;
+    }
+    }
+
+.event_box .event_link{
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+}
+
+.speaker_planning_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    padding-right: 5%;
+    padding-left: 5%;
+    grid-gap: 4%;
+    width: 90%;
+    margin-top:40px;
+}
+.speaker_planning_container .event_box {
+    display: flex;
+    position: relative;
+    box-shadow: 0px 2px 9px 0px rgba(226,226,226,1);
+    background-color: white;
+    font-family: Gotham-Medium;
+    margin-bottom: 20px;
+    min-height: 200px;
+    /*transition: opacity 0.5s ease-out;*/
+    /* opacity: 0; */
+}
+.speaker_planning_container .event_box .event_img{
+    height: 100%;
+    background-size: cover;
+    flex: 35%;
+}
+
+.speaker_planning_container .event_box .event_info {
+    flex: 65%;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: black;
+    
+    
+}
+.speaker_planning_container .event_box .event_info h5 {
+    text-transform: uppercase;
+    font-family: Gotham-Medium;
+    font-size:16px;
+
+    
+    
+}
+.speaker_planning_container .event_box .event_info p {
+   
+    font-family: Gotham-Book;
+    font-size:14px;
+    padding-left: 10px;
+}
+.speaker_planning_container .date-svg{
+    width:21px;
+    height:21px;
+    position: relative;
+    left:-12px;
+    bottom: -5px;
+}
+.speaker_planning_container  .hour-svg{
+    width:21px;
+    height:21px;
+    position: relative;
+    left:-12px;
+    bottom: -5px;
+}
+.speaker_planning_container  .location-svg{
+    width: 21px;
+    height:24px;
+    position: relative;
+    left:-12px;
+    bottom: -5px;
+}

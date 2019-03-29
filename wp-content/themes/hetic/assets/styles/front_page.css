@@ -3,13 +3,16 @@
     flex-direction: column;
     align-items: center;
     height:400px;
-    width: 100%;
+    width: 90%;
     background-size: cover;
     background-position-y: center;
     text-transform: uppercase;
     color: #FFFFFF;
     position: relative;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 0 5% 0 5%;
+
 }
 .main_banner::before{
     content:"";
@@ -122,9 +125,10 @@
 }
 h4 {
     font-family: Gotham-Medium;
-    font-size: 24px;
+    font-size: 28px;
     padding-left: 5%;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    margin-top: 40px;
     text-transform: uppercase;
     position: relative;
 }
@@ -159,7 +163,13 @@ iframe{
     background-color:white;
     font-family:Gotham-Medium;
     margin-bottom: 20px;
+    transition: opacity 0.5s ease-out;
+    opacity:0;
 }
+.event_box.active{
+    opacity: 1;
+}
+
 
 .planning_container .event_box .event_img{
     width:100%;
@@ -202,6 +212,7 @@ iframe{
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .filter_container >div{
     display:flex;
     flex-direction: column;
@@ -242,3 +253,13 @@ iframe{
 
 }
 
+@media (max-width: 992px) { 
+    .filter_container{
+        width:50%;
+    }
+    @media (max-width: 992px) { 
+        .filter_container{
+            width:70%;
+        }
+}
+}

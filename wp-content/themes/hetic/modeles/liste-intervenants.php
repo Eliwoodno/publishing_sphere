@@ -7,27 +7,29 @@ Template Name: Liste des intervenants
 
 <?php get_header(); ?>
 
-<?php 
-the_field('titre');
-?>
 
 <?php $args = array('post_type' => 'intervenant');
   
-$my_query = new WP_Query($args); 
+$my_query = new WP_Query($args);?> 
+<h4>Speakers</h4>
+<div class="speakers_container">
 
-if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
-    the_title(); //Titre = nom
-    the_field('specialite'); // Spécialité
+<?if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
+    $image = get_field('photo_intervenant');?>
+    
+    <div class="speaker_box">
+        <a href="<?the_permalink()?>">
+        <div class="speaker_img" style="background-image:url('<?echo $image['url']; ?>')" title='<?echo $image['alt']; ?>'></div>
+        <div><?the_title();?></div>
+        <div><?the_field('specialite');?></div>
+        </a>
+    </div>
 
-    $image = get_field('photo_intervenant'); // Image
-    echo $image['alt']; 
-    echo $image['url']; 
-    the_permalink(); //Lien pour la page perso
-
-	wp_reset_postdata();
+	<?wp_reset_postdata();
 
 endwhile;
 endif; ?>
+</div>
 
 
 

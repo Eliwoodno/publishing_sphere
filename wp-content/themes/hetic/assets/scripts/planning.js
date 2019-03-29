@@ -10,12 +10,14 @@ let activeFilters = {
 
 const displayeventboxes = (box) =>{
   box.style.display='none';
-  box.classList.remove='active_eventbox';
+  box.offsetHeight;
+  box.style.opacity = 0
  if(box.getAttribute('date') == activeFilters.date){
  if(box.getAttribute('location') == activeFilters.location || activeFilters.location =='' ){
 if(box.getAttribute('type') ==activeFilters.type || activeFilters.type ==''){
   box.style.display='flex';
-  box.classList.add='active_eventbox';
+  box.offsetHeight;
+  box.style.opacity = 1
   
   }
   
@@ -38,7 +40,6 @@ for(let i=0; i<filters.length; i++){
     activeFilters.date = filters[0].value
     activeFilters.location = filters[1].value
     activeFilters.type = filters[2].value
-    console.log(activeFilters)
 
     for(let j=0; j<eventboxes.length; j++){
 

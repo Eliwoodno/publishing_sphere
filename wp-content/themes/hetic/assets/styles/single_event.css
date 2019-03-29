@@ -1,0 +1,111 @@
+.banner_wrapper{
+    position: relative;
+    overflow: hidden;
+    height:370px;
+
+}
+
+.event_banner{
+   
+    height:370px;
+    justify-content: center;
+    width: 90%;
+    background-size: cover;
+    background-position-y: center;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 100px;
+    padding: 0 5% 0 5%;
+    filter: blur(6px);
+}
+
+.banner_text h1, p{
+    z-index:12;
+}
+.banner_text h1{
+    
+    margin-bottom: 30px;
+    
+}
+.banner_text p{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.banner_text{
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    left:5%;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: Lack-Regular;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+.event_introduction h3{
+
+    font-family: Gotham-Book;
+    font-size:24px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+
+}
+
+.event_introduction {
+    margin-bottom: 30px;
+    padding-right:70px;
+
+}
+.event_introduction p{
+    font-family: Gotham-Light;
+    font-size:14px;
+    line-height: 24px;
+    flex:2 0 auto;
+    
+}
+.event_content{
+    margin-top:50px;
+    width: 90%;
+    padding:0 5% 0 5%;
+    display: flex;
+    
+    justify-content: space-between;
+}
+.event_speakers {
+    display:flex;
+    flex-direction: column;
+}
+.event_speaker {
+    margin-bottom: 30px;
+}
+.event_speaker .speaker_photo{
+    width: 320px;
+    height: 260px;
+    background-size: cover;
+
+}
+.event_speaker a {
+    text-decoration: none;
+    color: black;
+    font-family: Gotham-Book;
+    display: block;
+}
+.event_speaker p {
+    margin-top: 10px;
+}
+@media (max-width: 768px) { 
+    .event_introduction{
+    padding-right:0px;
+    }
+    .event_content {
+        flex-direction: column;
+    }
+    .event_speakers {
+        align-self: center;
+    }
+    }
