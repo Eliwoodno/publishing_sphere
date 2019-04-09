@@ -2,6 +2,7 @@
     position: relative;
     overflow: hidden;
     height:370px;
+    margin-top:-70px;
 
 }
 
@@ -17,7 +18,7 @@
     margin-bottom: 70px;
     padding: 0 5% 0 5%;
     filter: blur(6px);
-    margin-top: -30px;
+    
 }
 
 .banner_text h1, p{
