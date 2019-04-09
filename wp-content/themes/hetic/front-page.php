@@ -15,9 +15,7 @@
 <!-- Evenements  -->
 <h4 class='dark_filet'><? echo the_field('titre_planning'); ?></h4> 
 
-<?php $args = array('post_type' => 'evenement',
-                    'taxonomy' => 'jour'
-);
+<?php
 
 $termsJour = get_terms( array(
 'taxonomy' => 'jour',
@@ -83,11 +81,17 @@ $termsJour = get_terms( array(
 <div class="planning_container"> <!-- Query events from the day being currently iterated -->
 <?$my_query = new WP_Query(array(
     'post_type' => 'evenement',
+  	'posts_per_page'	=> -1,
+  	'orderby'			=> 'meta_value',
+	'meta_key'			=> 'debut_event',
+	'meta_type'			=> 'TIME',
+  	'order'				=> 'ASC',
     'tax_query' => array(
         array(
             'taxonomy' => 'jour',
             'field' => 'slug',
-            'terms' => $termsJour[$i]->slug 
+            'terms' => $termsJour[$i]->slug,
+          
         )
     )
   )
@@ -110,7 +114,7 @@ $type = $typeSlug[0]->slug;
   <a class="event_link" href="<? echo the_permalink();?>">
     <div class="event_img" style="background-image:url('<?echo $image['url']?>')" title="<?echo $image['alt']?>"></div>
     <h4 class="event_title"><? echo the_title()?></h4>
-    <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('heure_evenement'); ?></p>
+    <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('debut_event'); ?> - <? echo the_field('fin_event'); ?></p>
     <p><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php the_field('lieu_evenement'); ?></p>
    </a>
 </div>
@@ -128,7 +132,11 @@ endif;?>
 
 <h4 class='dark_filet' ><? echo the_field('titre_diffusion'); ?></h4> 
 <div class="stream_wrapper">
-<?php the_field('youtube'); ?>
+<?php if(!empty(get_field('youtube'))):
+         the_field('youtube');
+      else :
+         the_field('image_live');
+  endif ; ?>
 </div>
 
 <!-- Partenaires  -->
