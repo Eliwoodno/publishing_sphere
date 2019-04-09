@@ -11,7 +11,7 @@ Template Name: Liste des intervenants
 <?php $args = array('post_type' => 'intervenant');
   
 $my_query = new WP_Query($args);?> 
-<h4>Speakers</h4>
+<h4 class='dark_filet'><?single_post_title()?></h4>
 <div class="speakers_container">
 
 <?if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();

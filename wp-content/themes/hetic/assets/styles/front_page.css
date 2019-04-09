@@ -9,9 +9,10 @@
     text-transform: uppercase;
     color: #FFFFFF;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     text-align: center;
     padding: 0 5% 0 5%;
+    margin-top: -70px;
 
 }
 .main_banner::before{
@@ -110,6 +111,24 @@
    user-select: none;
 
 }
+.sponsor-list {
+   
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    padding-right: 5%;
+    padding-left: 5%;
+    display: none;
+ 
+ }
+.sponsor-list img{
+   
+   width:200px;
+   user-select: none;
+   margin-bottom:50px;
+
+}
 .sponsor-slider .next{
     z-index:50;
     position:absolute;
@@ -124,13 +143,15 @@
 
 }
 h4 {
-    font-family: Gotham-Medium;
+    font-family: Lack-Line;
     font-size: 28px;
     padding-left: 5%;
+    padding-right: 5%;
     margin-bottom: 40px;
     margin-top: 40px;
     text-transform: uppercase;
     position: relative;
+    font-weight: normal;
 }
 h4.dark_filet::before{
     content:"";
@@ -138,7 +159,7 @@ h4.dark_filet::before{
     width: 80px;
     height: 8px;
     background-color: black;
-    left:5%;
+    
     top:-25px;
 }
 iframe{
@@ -164,7 +185,7 @@ iframe{
     font-family:Gotham-Medium;
     margin-bottom: 20px;
     transition: opacity 0.5s ease-out;
-    opacity:0;
+    opacity:1;
 }
 .event_box.active{
     opacity: 1;
@@ -182,17 +203,11 @@ iframe{
     font-size:16px;
     line-height: 20px;
     font-weight: lighter;
-    padding:20px 20px 60px 20px;
+    padding:20px 20px 20px 20px;
     margin: 0;
+    font-family: Gotham-Medium;
 }
-.planning_container .event_box p.event_hours{
-    color:#9B9B9B;
-    font-size:16px;
-    font-weight: lighter;
-    position: absolute;
-    left:20px;
-    bottom:20px;
-}
+
 
 .planning_container +h4 {
     margin-top:60px;
@@ -252,6 +267,33 @@ iframe{
     margin-bottom: 15px;
 
 }
+h5.day_title, h5.event_type_title{
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 90%;
+    font-family: Gotham-Book;
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: opacity 0.5s ease-out;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+.main_planning{
+    margin-bottom: 50px;
+   }
+   .planning_container .date-svg, .planning_container .location-svg, .planning_container .hour-svg  {
+    width: 21px;
+    height: 21px;
+    position: relative;
+    left: -12px;
+    bottom: -5px;
+}
+.planning_container .event_box p {
+    font-family: Gotham-Book;
+    font-size: 14px;
+    padding: 0px 20px 20px 32px;
+}
 
 @media (max-width: 992px) { 
     .filter_container{
@@ -262,4 +304,12 @@ iframe{
             width:70%;
         }
 }
+}
+@media (max-width: 900px) { 
+    .sponsor-list{
+        display:flex;
+    }
+    .sponsor-slider{
+        display:none;
+    }
 }

@@ -19,6 +19,10 @@ function ajout_css_js(){
   wp_enqueue_script('planning');
 
   }
+  if ( is_page('a-propos') || is_page('about')  ) {
+    wp_register_script('planning', get_template_directory_uri() . '/assets/scripts/planning.js', array('jquery'),'1.1', true);
+    wp_enqueue_script('planning');
+  }
 
   wp_register_style( 'main_style', get_template_directory_uri() . '/assets/styles/main.css' );
   wp_enqueue_style( 'main_style' );
@@ -43,6 +47,9 @@ function ajout_css_js(){
   
   wp_register_style( 'speaker_list_style', get_template_directory_uri() . '/assets/styles/speaker_list.css' );
   wp_enqueue_style( 'speaker_list_style' );
+
+  wp_register_style( 'about_style', get_template_directory_uri() . '/assets/styles/about.css' );
+  wp_enqueue_style( 'about_style' );
 
 }
  

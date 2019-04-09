@@ -50,14 +50,15 @@ $image = get_field('image_evenement');
               endforeach; ?>
     <?php endif;
 
-  if($incre == 1):
-  endif; ?>
-  <div class="event_speaker">
+  if($incre == 1):?>
+    <div class="event_speaker">
     <a href='<?echo ($permalink)?>'>
     <div class="speaker_photo"style="background-image:url('<?echo $image['url'];?>')"title='<?echo $image['alt'];?>'></div>
     <p><?echo($title);?></p>
     </a>
   </div>
+  <?endif; ?>
+  
 
 <?endwhile;
 endif; 

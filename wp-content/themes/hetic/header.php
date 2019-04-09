@@ -3,7 +3,7 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no"/>
     <meta name="description" content="<?php the_field('texte_meta_description');?>" />
     <title>Publishing Sphere - <?php if(get_the_title()): the_title(); else: echo "404"; endif; ?> </title>
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">

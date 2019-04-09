@@ -23,24 +23,41 @@
   </div>
 </div>
 
-<?$posts = get_field('evenements');
+<?php 
 
-if( $posts ): ?>
-    
-    <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
-        <?php setup_postdata($post); ?>
-      <?php 
-      
-      $termsType = get_terms( array('taxonomy' => 'type_event') );
-      $typeEvent = $termsType[$i]->slug;  //Affichage des jours pour le trie
-      
-      if( $typeEvent == "event-fr" || $typeEvent == "event-en" ):
-      ?>
-       <div class="speaker_planning_container">
-        
-          
+$termsType = get_terms( array(
+'taxonomy' => 'type_event',
+'orderby' => 'ID',
+'order' => 'ASC') );?>
 
-          <?php $image = get_field('image_evenement'); ?>
+<div class="main_planning">
+<?for ($i = 0; $i < sizeof($termsType); $i++){?> <!--Iterate through types-->
+  
+<h5 class='event_type_title'><?echo($termsType[$i]->name);?></h5> <!-- Display types as title -->
+
+<div class="speaker_planning_container"> <!-- Query events from the type being currently iterated -->
+<?$my_query = new WP_Query(array(
+    'post_type' => 'evenement',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'type_event',
+            'field' => 'slug',
+            'terms' => $termsType[$i]->slug 
+        )
+    )
+  )
+        );?>
+       
+       <?if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post(); // iterate through events and displays them
+
+$image = get_field('image_evenement');
+$id = get_the_ID();
+$jourSlug = get_the_terms($id, 'jour');
+$jour = $jourSlug[0]->slug;
+$lieuSlug = get_the_terms($id, 'lieu');
+$lieu = $lieuSlug[0]->slug;
+$typeSlug = get_the_terms($id, 'type_event');
+$type = $typeSlug[0]->slug;?>
 
           <div class="event_box">
           <a class="event_link" href="<? echo the_permalink();?>">
@@ -49,37 +66,26 @@ if( $posts ): ?>
          <h5 class="event_title"><? echo the_title()?></h5>
          <p class="event_date"><img class='date-svg'src='<?echo (IMAGES_URL . '/Calendar.svg')?>'><?php the_field('date_evenement'); ?></p>
          <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('heure_evenement'); ?></p>
-         <p><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php the_field('lieu_evenement'); ?></p>
+         <p class="event_location"><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php the_field('lieu_evenement'); ?></p>
          </div>
         </a>
         </div>
-          
-             <?$i +=1; ?>
+        <?wp_reset_postdata(); 
+          endwhile;
+         endif;?>
              </div>
-        
-      <?php elseif($typeEvent == "atelier-fr" || $typeEvent == "atelier-en"): ?>
-        <div class="speaker_planning_container">
-            
-            <?php $image = get_field('image_evenement'); ?>
-            <div class="event_box">
-          <a class="event_link" href="<? echo the_permalink();?>">
-         <div class="event_img" style="background-image:url('<?echo $image['url']?>')" title="<?echo $image['alt']?>"></div>
-         <div class="event_info">
-         <h5 class="event_title"><? echo the_title()?></h5>
-         <p class="event_date"> <img class='date-svg'src='<?echo (IMAGES_URL . '/Calendar.svg')?>'><?php the_field('date_evenement'); ?></p>
-         <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('heure_evenement'); ?></p>
-         <p class='event_location'><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php the_field('lieu_evenement'); ?></p>
-        </div>
-        </a>
-        </div>
-            
-            <?$i +=1; ?>
+             <?}?>
       </div>
       
-      <?php endif; ?>
-    <?php endforeach; ?>
+      
+    
     
     <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-<?php endif;  ?>
+
+
+
+
 
 <?php get_footer(); ?>
+
+

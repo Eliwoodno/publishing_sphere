@@ -28,6 +28,7 @@ $termsJour = get_terms( array(
 <div>
 <div class="filter_title"><img class='date-svg'src='<?echo (IMAGES_URL . '/Calendar.svg') ?>'>DATE</div>
 <select class="date_filter filters" data-filter='date'>
+<option value="">All</option>
 <?for ($i = 0; $i < sizeof($termsJour); $i++) {?>
    <option value="<?echo($termsJour[$i]->slug);?>">
      <? echo($termsJour[$i]->name);?>
@@ -70,25 +71,29 @@ $termsJour = get_terms( array(
 
 
 <!-- NOUVEAU SELECTEUR DE TAG SUR LA HOME PAGE --> 
-<div>
-<div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/Location.svg') ?>'>TAG</div>
-<select class="type_filter filters" data-filter='type'>
-<option value="">All</option>
-<?for ($i = 0; $i < sizeof($termsTag); $i++) {?>
-  <option value="<?echo($termsTag[$i]->slug);?>" >
-     <? echo($termsTag[$i]->name);?>
-</option>
-<?}?>
-</select>
-</div>
-</div>
+
 
 <!-- FIN --> 
 
-<div class="planning_container">
-<?$my_query = new WP_Query($args); 
+<div class="main_planning">
+<?for ($i = 0; $i < sizeof($termsJour); $i++){?> <!--Iterate through days-->
+  
+<h5 class='day_title'><?echo($termsJour[$i]->name);?></h5> <!-- Display day as title -->
 
-if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post(); 
+<div class="planning_container"> <!-- Query events from the day being currently iterated -->
+<?$my_query = new WP_Query(array(
+    'post_type' => 'evenement',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'jour',
+            'field' => 'slug',
+            'terms' => $termsJour[$i]->slug 
+        )
+    )
+  )
+        );
+
+if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post(); // iterate through events and displays them
 
 $image = get_field('image_evenement');
 $id = get_the_ID();
@@ -105,7 +110,8 @@ $type = $typeSlug[0]->slug;
   <a class="event_link" href="<? echo the_permalink();?>">
     <div class="event_img" style="background-image:url('<?echo $image['url']?>')" title="<?echo $image['alt']?>"></div>
     <h4 class="event_title"><? echo the_title()?></h4>
-    <p class="event_hours"><? echo the_field('heure_evenement'); ?></p>
+    <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('heure_evenement'); ?></p>
+    <p><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php the_field('lieu_evenement'); ?></p>
    </a>
 </div>
 <?php
@@ -114,8 +120,10 @@ $type = $typeSlug[0]->slug;
     
 	wp_reset_postdata(); 
 endwhile;
-endif; ?>
+endif;?>
 </div>
+<?}?>
+</div >
 <!-- Direct  -->
 
 <h4 class='dark_filet' ><? echo the_field('titre_diffusion'); ?></h4> 
@@ -147,7 +155,18 @@ if($my_query->have_posts()) : $counter=0; $numerator=0; while ($my_query->have_p
   }
   
   $counter++;
+  wp_reset_postdata(); 
+endwhile;
+endif; ?>
+</div>
+<div class="sponsor-list">
+<?$my_query = new WP_Query($args);
+if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
   
+  $image = get_field('image_partenaire');?>
+  <a href="<?echo the_field('lien_partenaire');?>"><img src="<? echo $image['url']; ?>" alt="<? echo $image['alt']; ?>"></a>
+  
+<?
 endwhile;
 endif; ?>
 </div>

@@ -14,9 +14,10 @@
     background-position-y: center;
     text-transform: uppercase;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     padding: 0 5% 0 5%;
     filter: blur(6px);
+    margin-top: -30px;
 }
 
 .banner_text h1, p{
@@ -47,13 +48,11 @@
     font-weight: lighter;
     text-transform: uppercase;
 }
-.event_introduction h3{
-
+.event_introduction > *:first-child{
     font-family: Gotham-Book;
     font-size:24px;
     margin-bottom: 30px;
     text-transform: uppercase;
-
 }
 
 .event_introduction {
