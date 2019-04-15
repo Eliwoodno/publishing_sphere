@@ -139,3 +139,13 @@
     left:-12px;
     bottom: -5px;
 }
+
+@media (max-width: 460px) { 
+    .speaker_planning_container {
+        
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .speaker_content .speaker_img{
+        width:100%;
+    }
+}

@@ -21,7 +21,7 @@
     
 }
 
-.banner_text h1, p{
+.banner_text h1, .banner_text p{
     z-index:12;
 }
 .banner_text h1{

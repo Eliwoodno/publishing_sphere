@@ -17,15 +17,31 @@ $termsType = get_terms( array(
 'order' => 'ASC') );?>
 
 <div class="main_planning"> 
+
+<?$termsJour = get_terms( array(
+'taxonomy' => 'jour',
+'orderby' => 'ID',
+'order' => 'ASC') );?>
   
-<div class="planning_container"> <!-- Query events from the type being currently iterated -->
+<div class="planning_container"> 
+<?for ($i = 0; $i < sizeof($termsJour); $i++){?><!-- Query events from the type being currently iterated -->
 <?$my_query = new WP_Query(array(
     'post_type' => 'evenement',
+    'posts_per_page' => -1,
+    'orderby' => 'meta_value',
+    'meta_key' => 'debut_event',
+    'meta_type' => 'TIME',
+    'order'	=> 'ASC',
     'tax_query' => array(
         array(
             'taxonomy' => 'type_event',
             'field' => 'slug',
-            'terms' => array('atelier-en','atelier-fr')
+            'terms' => array('workshop','atelier')
+        ),
+        array(
+            'taxonomy' => 'jour',
+            'field' => 'slug',
+            'terms' => $termsJour[$i]->slug,
         )
     )
   )
@@ -48,7 +64,7 @@ $type = $typeSlug[0]->slug;?>
          <div class="event_info">
          <h4 class="event_title"><? echo the_title()?></h5>
          <p class="event_date"><img class='date-svg'src='<?echo (IMAGES_URL . '/Calendar.svg')?>'><?php the_field('date_evenement'); ?></p>
-         <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('heure_evenement'); ?></p>
+         <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('debut_event'); ?> - <? echo the_field('fin_event'); ?></p>
          <p class="event_location"><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php the_field('lieu_evenement'); ?></p>
          </div>
         </a>
@@ -56,6 +72,7 @@ $type = $typeSlug[0]->slug;?>
         <?wp_reset_postdata(); 
           endwhile;
          endif;?>
+         <?}?>
              </div>
       </div>
       

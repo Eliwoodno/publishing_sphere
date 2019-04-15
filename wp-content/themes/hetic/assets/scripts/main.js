@@ -1,1 +1,1 @@
-console.log('test JS');
+console.log('Javascript is active on this page');

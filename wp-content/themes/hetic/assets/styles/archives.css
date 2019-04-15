@@ -1,0 +1,40 @@
+.archive_wrapper{
+    width:90%;
+    padding:0 5% 0 5%;
+    
+}
+.archive_wrapper h4 {
+    padding:0;
+}
+.archive_wrapper h5 {
+    font-family: Gotham-Medium;
+    font-size : 16px;
+    font-weight: lighter;
+}
+.archive_wrapper > div {
+    margin-bottom: 40px;
+
+}
+.archive_wrapper > div p{
+    font-family: Gotham-Light;
+    font-size : 14px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+.archive_wrapper iframe{
+    width:640px;
+
+}
+
+@media (max-width: 800px) { 
+    .archive_wrapper iframe{
+        width:100%;
+    }
+}
+
+.archive_wrapper img{
+    height:340px;
+
+}

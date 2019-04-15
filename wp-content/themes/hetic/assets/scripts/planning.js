@@ -7,8 +7,10 @@ let activeFilters = {
   date:'',
   location:'',
   type:'',
-  tags:{}
+  tags:[]
 }
+
+let arrayComparator = (arr, target) => target.every(v => arr.includes(v))
 
 const displayEventBoxes = (box) =>{
   box.style.display='none';
@@ -17,16 +19,19 @@ const displayEventBoxes = (box) =>{
  if(box.getAttribute('date') == activeFilters.date || activeFilters.date ==''){
  if(box.getAttribute('location') == activeFilters.location || activeFilters.location =='' ){
 if(box.getAttribute('type') ==activeFilters.type || activeFilters.type ==''){
+if( arrayComparator(((box.getAttribute('tags')).split(",")),activeFilters.tags) || (activeFilters.tags).length ==0){
+//check if activeFilters.tags is present is tag attribute
   box.style.display='flex';
   box.offsetHeight;
   box.style.opacity = 1
   
-  }
   
+}
    }
   
    
  }
+}
 }
 const displayEventDayTitles = (day_title,index) =>{
  
@@ -37,11 +42,8 @@ const displayEventDayTitles = (day_title,index) =>{
     day_title.style.opacity = 1
   }
  let b = document.querySelectorAll('.planning_container:nth-of-type('+ (index + 1) +') .event_box')
- console.log(b)
  let c = Array.from(b)
- console.log(c)
  let mapC = c.map(x => x.style.display);
- console.log(mapC)
   if(mapC.indexOf('flex') == -1){
 
     day_title.style.display='none';
@@ -90,5 +92,71 @@ for(let i=0; i<filters.length; i++){
       
  )}
 
+let addTag = document.querySelector('.add_tag')
+let tagsBox = document.querySelector('.tags_box')
+let tags = tagsBox.querySelectorAll('div')
+let activeTagsContainer = document.querySelector('.active_tags')
+let deleteTags = document.querySelectorAll('.cross-svg')
+
+const checkActiveTags = () =>{
+ let activeTags = activeTagsContainer.querySelectorAll('div')
+ activeFilters.tags=[]
+ for(let i = 0; i < activeTags.length - 1; i++){
+   (activeFilters.tags).push(activeTags[i].innerText)
+ }
+ 
+}
+
+ addTag.addEventListener('click', (event) =>{ 
+    event.stopPropagation();
+    tagsBox.classList.add('tags_box-active')
+ })
+document.addEventListener('click', (event) =>{ 
+    tagsBox.classList.remove('tags_box-active')
+ })
+ for( let tag of tags ){
+   tag.addEventListener('click', (event) =>{ 
+    event.stopPropagation();
+    let div = document.createElement('div')
+    div.innerHTML = tag.innerText+"<img class='cross-svg'src='../../wp-content/themes/hetic/assets/images/cross.svg'>"
+    addTag.parentNode.insertBefore(div, addTag)
+    deleteTags = document.querySelectorAll('.cross-svg')
+    for( let deleteTag of deleteTags ){
+    deleteTag.addEventListener('click', (event) =>{ 
+    event.stopPropagation();
+    deleteTag.parentNode.remove()
+    checkActiveTags()
+    for(let l = 0; l<eventboxes.length; l++){
+
+    displayEventBoxes(eventboxes[l]);
+
+     }  
+    for(let h = 0; h<eventDayTitles.length; h++){
+
+    displayEventDayTitles (eventDayTitles[h],h);
+
+     }  
+
+ })
+ 
+ }
+    checkActiveTags()
+    for(let l = 0; l<eventboxes.length; l++){
+
+    displayEventBoxes(eventboxes[l]);
+
+     }  
+    for(let h = 0; h<eventDayTitles.length; h++){
+
+    displayEventDayTitles (eventDayTitles[h],h);
+
+     }  
+
+ })
+ 
+ }
+
+ 
 
 
+ //<div>memes <img class='cross-svg'src='<?echo (IMAGES_URL . '/cross.svg') ?>'></div>

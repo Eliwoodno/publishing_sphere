@@ -15,13 +15,23 @@ function ajout_css_js(){
   wp_register_script('sponsor_slider_script', get_template_directory_uri() . '/assets/scripts/sponsor_slider.js', array('jquery'),'1.1', true);
   wp_enqueue_script('sponsor_slider_script');
 
+
+
   wp_register_script('planning', get_template_directory_uri() . '/assets/scripts/planning.js', array('jquery'),'1.1', true);
   wp_enqueue_script('planning');
+
+  wp_register_script('custom_select_input', get_template_directory_uri() . '/assets/scripts/custom_select_input.js', array('jquery'),'1.1', true);
+  wp_enqueue_script('custom_select_input');
+
+
 
   }
   if ( is_page('a-propos') || is_page('about')  ) {
     wp_register_script('planning', get_template_directory_uri() . '/assets/scripts/planning.js', array('jquery'),'1.1', true);
     wp_enqueue_script('planning');
+    
+    wp_register_script('custom_select_input', get_template_directory_uri() . '/assets/scripts/custom_select_input.js', array('jquery'),'1.1', true);
+    wp_enqueue_script('custom_select_input');
   }
 
   wp_register_style( 'main_style', get_template_directory_uri() . '/assets/styles/main.css' );
@@ -50,6 +60,13 @@ function ajout_css_js(){
 
   wp_register_style( 'about_style', get_template_directory_uri() . '/assets/styles/about.css' );
   wp_enqueue_style( 'about_style' );
+
+
+  wp_register_style( 'archives_style', get_template_directory_uri() . '/assets/styles/archives.css' );
+  wp_enqueue_style( 'archives_style' );
+
+  wp_register_style( 'practical_informations_style', get_template_directory_uri() . '/assets/styles/practical_informations.css' );
+  wp_enqueue_style( 'practical_informations_style' );
 
 }
  

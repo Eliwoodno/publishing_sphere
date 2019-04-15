@@ -50,7 +50,9 @@
 .stream_wrapper{
     width:90%;
     padding: 0 5%;
-    height: 450px;
+    height: 500px;
+    margin-bottom: 70px;
+    
 }
 /* SLIDER */
 .sponsor-slider{
@@ -170,7 +172,7 @@ iframe{
 .planning_container{
     
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     padding-right:5%;
     padding-left:5%;
     grid-gap: 2%;
@@ -205,6 +207,7 @@ iframe{
     font-weight: lighter;
     padding:20px 20px 20px 20px;
     margin: 0;
+    min-height:40px;
     font-family: Gotham-Medium;
 }
 
@@ -220,7 +223,7 @@ iframe{
 }
 
 .filter_container{
-    width:35%;
+    width:60%;
     padding-left:5%;
     display: flex;
     margin-bottom: 30px;
@@ -231,7 +234,13 @@ iframe{
 .filter_container >div{
     display:flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    padding-right:40px;
+    position: relative;
+}
+.filter_container >div:last-child .filter_title{
+    position:relative;
+    top:10px;
 }
 .filter_container ul{
    list-style: none;
@@ -280,7 +289,7 @@ h5.day_title, h5.event_type_title{
 }
 
 .main_planning{
-    margin-bottom: 50px;
+    margin-bottom: 120px;
    }
    .planning_container .date-svg, .planning_container .location-svg, .planning_container .hour-svg  {
     width: 21px;
@@ -294,10 +303,68 @@ h5.day_title, h5.event_type_title{
     font-size: 14px;
     padding: 0px 20px 20px 32px;
 }
+.active_tags{
+    display:flex;
+    flex-wrap:wrap;
+    max-width:320px;
+}
+.active_tags div{
+    padding:5px;
+    background-color: #D43B3A;
+    margin-right : 5px;
+    margin-top: 5px;
+    font-size:14px;
+    font-family:Gotham-Book;
+    color:white;
+    border-radius:4px;
+
+}
+.tags_box{
+    min-width: 30vw;
+    position: absolute;
+    top: 100%;
+    left:0px;
+    box-shadow: 0px 0px 4px 0px #b1b1b1;
+    flex-wrap: wrap;
+    height: fit-content;
+    background-color:white;
+    z-index:9999;
+    display: none;
+    padding: 10px;
+}
+.tags_box-active{
+    display: flex;
+}
+.tags_box div{
+    padding:5px;
+    color: #4A4A4A;
+    margin-right : 10px;
+    margin-left : 10px;
+    margin-bottom : 5px;
+    margin-top: 5px;
+    font-size:14px;
+    font-family:Gotham-Book;
+    border-radius:4px;
+    background-color: #F4F4F4;
+    cursor: pointer;
+}
+.cross-svg{
+vertical-align: middle;
+cursor: pointer;
+margin-right:4px! important;
+margin-left: 4px;
+}
+   
+.add_tag{
+    cursor:pointer;
+}
 
 @media (max-width: 992px) { 
     .filter_container{
         width:50%;
+    }
+    .active_tags{
+        max-width:440px;
     }
     @media (max-width: 992px) { 
         .filter_container{
@@ -312,4 +379,101 @@ h5.day_title, h5.event_type_title{
     .sponsor-slider{
         display:none;
     }
+}
+
+@media (max-width: 460px) { 
+    .planning_container {
+        
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .active_tags{
+        max-width:280px;
+    }
+}
+
+
+.custom-select {
+    position: relative;
+    font-family: Gotham-Book;
+    font-size:14px;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element: */
+  }
+  
+  .select-selected {
+    background-color: white;
+  }
+  
+  /* Style the arrow inside the select element: */
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 5px;
+    margin-left: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #000 transparent transparent transparent;
+  }
+  
+  /* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #000 transparent;
+    top: 0px;
+  }
+
+
+  
+  
+  /* style the items (options), including the selected item: */
+  .select-items div{
+    user-select: none;
+    padding: 8px 16px 8px 5px;
+    color: #000000;
+    cursor: pointer;
+    z-index: 2000;
+    min-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    
+  }
+  .select-selected {
+    user-select: none;
+    color: #000000;
+    padding:0;
+    cursor: pointer;
+  }
+  
+  /* Style items (options): */
+  .select-items {
+    
+    max-height: 600px;
+    user-select: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    z-index: 15000;
+    box-shadow: 0px 0px 4px 0px #b1b1b1;
+    min-width: 100%; 
+    overflow: hidden;
+  }
+  
+  /* Hide the items when the select box is closed: */
+  .select-items.select-hide {
+    max-height: 0px;
+    overflow: hidden;
+   
+    
+    
+    
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    color: #D43B3A;
+  }
+  .same-as-selected {
+   color: #D43B3A !important;
 }

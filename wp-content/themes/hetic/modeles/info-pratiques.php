@@ -7,11 +7,13 @@ Template Name: Infos pratiques
 
 
 <?php get_header(); ?>
-<?php 
-  the_field('informations');
-  the_field('informations_complementaires');
 
-  $location = get_field('maps');
+  <div class='informations'>
+	  <?the_field('informations');?>
+  
+ 
+
+  <?$location = get_field('maps');
 
   if( !empty($location) ):
 ?>
@@ -21,10 +23,13 @@ Template Name: Infos pratiques
   </div>
 <?php endif; ?>
 
+
+<?the_field('informations_complementaires');?>
+</div>
 <?php get_footer(); ?>
 
 
-<!-- PIERRE C'EST LE STYLE ET SCRIPT POUR LA MAP --> 
+
 
 <style type="text/css">
 

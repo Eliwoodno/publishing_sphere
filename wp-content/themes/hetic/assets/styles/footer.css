@@ -134,7 +134,9 @@ footer .menu > li > a{
     line-height: 16px;
 }
 footer .social_media img{
-    width: 20px;
+    width: 25px;
+    margin-top: 5px;
+    margin-right: 5px;
 }
 
 @media (max-width: 768px) { 

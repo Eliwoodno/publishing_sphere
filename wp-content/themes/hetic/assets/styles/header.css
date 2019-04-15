@@ -100,6 +100,11 @@ header > .flex-container > a{
         padding-right: 0px;
         padding-left: 0px;
     }
+    #menu-langues-en, #menu-langues-fr {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: underline;
+    }
     
     
  }
