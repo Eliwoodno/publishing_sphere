@@ -101,7 +101,7 @@ let deleteTags = document.querySelectorAll('.cross-svg')
 const checkActiveTags = () =>{
  let activeTags = activeTagsContainer.querySelectorAll('div')
  activeFilters.tags=[]
- for(let i = 0; i < activeTags.length - 1; i++){
+ for(let i = 1; i < activeTags.length; i++){
    (activeFilters.tags).push(activeTags[i].innerText)
  }
  
@@ -119,7 +119,7 @@ document.addEventListener('click', (event) =>{
     event.stopPropagation();
     let div = document.createElement('div')
     div.innerHTML = tag.innerText+"<img class='cross-svg'src='../../wp-content/themes/hetic/assets/images/cross.svg'>"
-    addTag.parentNode.insertBefore(div, addTag)
+    addTag.parentNode.append(div)
     deleteTags = document.querySelectorAll('.cross-svg')
     for( let deleteTag of deleteTags ){
     deleteTag.addEventListener('click', (event) =>{ 
