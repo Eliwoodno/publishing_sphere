@@ -58,59 +58,25 @@
 .sponsor-slider{
 
     position:relative;
-    width:90%;
+    width:100% !important;
+    margin: 0px!important;
     height:200px;
     background-color: #F5F5F5;
     padding: 0 5%;
+    display:flex;   
+    align-items:center;
 
 
 }
-.sponsor-slider .previous{
-    position: absolute;
-    width:18px;
-    height: 18px;
-    border-top:solid #4A4A4A 2px;
-    border-left:solid #4A4A4A 2px;
-    transform: rotate(-45deg);
-    top: calc(50% - 9px);
-    left: 8%;
-    
+.sponsor-slider .slide-item{
+    text-align: center;
 }
-.sponsor-slider .next{
-    position: absolute;
-    width:18px;
-    height: 18px;
-    border-top:solid #4A4A4A 2px;
-    border-left:solid #4A4A4A 2px;
-    transform: rotate(135deg);
-    top: calc(50% - 9px);
-    right: 8%;
-
-}
-.sponsor-slider .slide{
-    display:flex;
-    visibility: hidden;
-    justify-content: space-evenly;
-    align-items: center;
-    position:absolute;
-    top:0;
-    left: 5%;
-    width: 90%;
-    height: 100%;
-    z-index:1;
-    opacity:0;
-
-}
-.sponsor-slider .slide.active{
-    opacity: 1; 
-    visibility: visible;
-    transition: opacity 0.8s ease-in;
- 
-}
-.sponsor-slider .slide img{
+.sponsor-slider .slide-item img{
    
    width:200px;
    user-select: none;
+   text-align: center;
+   margin: auto;
 
 }
 .sponsor-list {
@@ -223,7 +189,7 @@ iframe{
 }
 
 .filter_container{
-    width:60%;
+    width:70%;
     padding-left:5%;
     display: flex;
     margin-bottom: 30px;
@@ -372,14 +338,7 @@ margin-left: 4px;
         }
 }
 }
-@media (max-width: 900px) { 
-    .sponsor-list{
-        display:flex;
-    }
-    .sponsor-slider{
-        display:none;
-    }
-}
+
 
 @media (max-width: 460px) { 
     .planning_container {
@@ -476,4 +435,38 @@ margin-left: 4px;
   }
   .same-as-selected {
    color: #D43B3A !important;
+}
+
+
+.slick-prev {
+    left: 5%;
+}
+.slick-next {
+    right: 5%;
+}
+.slick-prev::before{
+    content: '';
+    transform-origin: center;
+    position: absolute;
+    width:18px;
+    height: 18px;
+    border-top:solid #4A4A4A 2px;
+    border-left:solid #4A4A4A 2px;
+    transform: rotate(-45deg);
+    
+    top: 0;
+    left: 0;
+    }
+.slick-next::before{
+    content: '';
+    transform-origin: center;
+    top:0;
+    position: absolute;
+    width:18px;
+    height: 18px;
+    border-top:solid #4A4A4A 2px;
+    border-left:solid #4A4A4A 2px;
+    transform: rotate(135deg);
+    
+    left: 0;
 }

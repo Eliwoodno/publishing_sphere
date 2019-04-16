@@ -12,16 +12,20 @@ function ajout_css_js(){
 
   if ( is_front_page()  ) {
 
-  wp_register_script('sponsor_slider_script', get_template_directory_uri() . '/assets/scripts/sponsor_slider.js', array('jquery'),'1.1', true);
-  wp_enqueue_script('sponsor_slider_script');
-
-
+  wp_register_script('jquery1', get_template_directory_uri() . '/assets/scripts/vendor/jquery-3.4.0.min.js', true);
+  wp_enqueue_script('jquery1');
 
   wp_register_script('planning', get_template_directory_uri() . '/assets/scripts/planning.js', array('jquery'),'1.1', true);
   wp_enqueue_script('planning');
 
   wp_register_script('custom_select_input', get_template_directory_uri() . '/assets/scripts/custom_select_input.js', array('jquery'),'1.1', true);
   wp_enqueue_script('custom_select_input');
+
+  wp_register_script('slickjs', get_template_directory_uri() . '/assets/scripts/vendor/slick.min.js', array('jquery'),'1.1', true);
+  wp_enqueue_script('slickjs');
+
+  wp_register_script('sponsor_slider_script', get_template_directory_uri() . '/assets/scripts/sponsor_slider.js', array('jquery'),'1.1', true);
+  wp_enqueue_script('sponsor_slider_script');
 
 
 
@@ -33,6 +37,12 @@ function ajout_css_js(){
     wp_register_script('custom_select_input', get_template_directory_uri() . '/assets/scripts/custom_select_input.js', array('jquery'),'1.1', true);
     wp_enqueue_script('custom_select_input');
   }
+
+  wp_register_style( 'slick', get_template_directory_uri() . '/assets/styles/vendor/slick.css' );
+  wp_enqueue_style( 'slick' );
+
+  wp_register_style( 'slick_theme', get_template_directory_uri() . '/assets/styles/vendor/slick-theme.css' );
+  wp_enqueue_style( 'slick_theme' );
 
   wp_register_style( 'main_style', get_template_directory_uri() . '/assets/styles/main.css' );
   wp_enqueue_style( 'main_style' );
@@ -67,6 +77,10 @@ function ajout_css_js(){
 
   wp_register_style( 'practical_informations_style', get_template_directory_uri() . '/assets/styles/practical_informations.css' );
   wp_enqueue_style( 'practical_informations_style' );
+
+
+
+
 
 }
  

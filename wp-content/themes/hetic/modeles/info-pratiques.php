@@ -9,23 +9,30 @@ Template Name: Infos pratiques
 <?php get_header(); ?>
 
   <div class='informations'>
-	  <?the_field('informations');?>
-  
+		<h4 class='dark_filet'><?echo the_field('titre_de_la_page_info_pratique')?></h4>
+	<div class='flex-container-map'>
+		<div style='padding-right: 25px;'>
+	    <?the_field('informations');?>
+    </div>
  
 
   <?$location = get_field('maps');
 
   if( !empty($location) ):
 ?>
-
+  <div style='flex:50%;'>
   <div class="acf-map">
 	<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-  </div>
+	</div>
+	</div>
+	</div>
+	</div>
 <?php endif; ?>
 
-
+<div class='informations_complementaires'>
 <?the_field('informations_complementaires');?>
 </div>
+
 <?php get_footer(); ?>
 
 

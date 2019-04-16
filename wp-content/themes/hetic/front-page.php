@@ -103,7 +103,7 @@ LIEU
 </div>
 <? $termsTag = get_terms( array('taxonomy' => 'tag_event') );?>
 
-<div>
+<div style='width:40%;'>
 <div class="filter_title" >TAGS</div>
 <div class='active_tags'>
   
@@ -211,31 +211,20 @@ endif;?>
 <!-- Partenaires  -->
 <h4 class='dark_filet' ><? echo the_field('titre_sponsors'); ?></h4> 
 <div class="sponsor-slider">
-  <div class="next"></div>
-  <div class="previous"></div>
-
-
 <?php $args = array('post_type' => 'partenaire');?>
 
 <?$my_query = new WP_Query($args);
 if($my_query->have_posts()) : $counter=0; $numerator=0; while ($my_query->have_posts() ) : $my_query->the_post();
-  if ($counter % 3 == 0){
-    echo ("<div class='slide' data-slide=".$numerator.">");
-    
-  }
+ 
   $image = get_field('image_partenaire');?>
+  <div class='slide-item'>
   <a href="<?echo the_field('lien_partenaire');?>"><img src="<? echo $image['url']; ?>" alt="<? echo $image['alt']; ?>"></a>
-  <?
-  if ((($counter+1) % 3 == 0 )||(($my_query->current_post +1) == ($my_query->post_count))){
-    echo ("</div>");
-    $numerator++;
-  }
-  
-  $counter++;
-  wp_reset_postdata(); 
+  </div>
+ <? wp_reset_postdata(); 
 endwhile;
 endif; ?>
 </div>
+
 <div class="sponsor-list">
 <?$my_query = new WP_Query($args);
 if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();

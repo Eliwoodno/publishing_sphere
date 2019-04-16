@@ -106,7 +106,7 @@ LIEU
 </div>
 <? $termsTag = get_terms( array('taxonomy' => 'tag_event') );?>
 
-<div>
+<div style='width:40%;'>
 <div class="filter_title" >TAGS</div>
 <div class='active_tags'>
   

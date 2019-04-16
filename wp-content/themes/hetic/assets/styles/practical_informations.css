@@ -1,12 +1,12 @@
-.informations{
+.informations, .informations_complementaires{
     width: 90%;
     padding: 0 5% 0 5%;
 }
-.informations h4 {
+.informations h4, .informations_complementaires h4 {
     padding: 0;
     margin-bottom: 30px;
 }
-.informations p {
+.informations p , .informations_complementaires p{
     font-family: Gotham-Book;
     font-size: 14px;
     margin-bottom: 20px;
@@ -22,20 +22,27 @@ strong {
     
 }
 .acf-map{
-    width:90% !important;
+    
+    margin:0px !important;
    
 }
 
-.informations h5 {
+.informations h5 , .informations_complementaires h5 {
     font-family: Lack-Regular;
     font-size: 24px;
     text-transform: uppercase;
     margin-bottom: 20px;
    
 }
-.informations h5 +p {
-    width: 90%;
+.informations h5 +p , .informations_complementaires h5 +p {
+    width: 70%;
     line-height: 24px;
     margin-bottom: 40px
     
+}
+.flex-container-map{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }

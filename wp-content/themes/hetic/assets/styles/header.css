@@ -51,8 +51,7 @@ header ul li a:hover{
 }
 
 header .logo{
-    width: 64px;
-    height:64px;
+    width: 85px;
 }
 header > .flex-container > a{
     font-size: 0;

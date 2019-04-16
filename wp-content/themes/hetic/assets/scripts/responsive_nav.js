@@ -7,3 +7,4 @@ hamb_button.addEventListener('click', (event) =>
     responsive_menu.classList.toggle('expanded')
 
 })
+

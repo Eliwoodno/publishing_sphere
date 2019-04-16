@@ -23,34 +23,60 @@
   </div>
 </div>
 
-<?php 
-
-$termsType = get_terms( array(
-'taxonomy' => 'type_event',
+<?$termsType = get_terms( array(
+  'taxonomy' => 'type_event',
+  'orderby' => 'ID',
+  'order' => 'ASC') );?>
+  <?$termsJour = get_terms( array(
+'taxonomy' => 'jour',
 'orderby' => 'ID',
 'order' => 'ASC') );?>
 
 <div class="main_planning">
-<?for ($i = 0; $i < sizeof($termsType); $i++){?> <!--Iterate through types-->
+<?for ($i = 0; $i < sizeof($termsType); $i++):?>
+  <!--Iterate through types-->
   
-<h5 class='event_type_title'><?echo($termsType[$i]->name);?></h5> <!-- Display types as title -->
+  
+<h5 class='event_type_title'><?echo($termsType[$i]->name);?>s</h5>
+ 
 
-<div class="speaker_planning_container"> <!-- Query events from the type being currently iterated -->
-<?$my_query = new WP_Query(array(
-    'post_type' => 'evenement',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'type_event',
-            'field' => 'slug',
-            'terms' => $termsType[$i]->slug 
-        )
-    )
+<div class="speaker_planning_container">
+<?for ($j = 0; $j < sizeof($termsJour); $j++):?>  <!-- Query events from the type being currently iterated -->
+<?$posts = get_posts(array(
+  'post_type' => 'evenement',
+  'posts_per_page' => -1,
+    'orderby' => 'meta_value',
+    'meta_key' => 'debut_event',
+    'meta_type' => 'TIME',
+    'order'	=> 'ASC',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'type_event',
+      'field' => 'slug', 
+      'terms' => $termsType[$i]->slug
+    ), array(
+      'taxonomy' => 'jour',
+      'field' => 'slug',
+      'terms' => $termsJour[$j]->slug,
   )
-        );?>
+    ),
+	'meta_query' => array(
+		array(
+			'key' => 'intervenants', // name of custom field
+			'value'   => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+			'compare' => 'LIKE'
+    ))
+  
+	
+));
+?>
        
-       <?if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post(); // iterate through events and displays them
+       <?php if( $posts): ?>
+       <?php foreach( $posts as $post ):?>
+       <?php setup_postdata($post); ?>
+       
 
-$image = get_field('image_evenement');
+<?$image = get_field('image_evenement');
 $id = get_the_ID();
 $jourSlug = get_the_terms($id, 'jour');
 $jour = $jourSlug[0]->slug;
@@ -70,11 +96,15 @@ $type = $typeSlug[0]->slug;?>
          </div>
         </a>
         </div>
-        <?wp_reset_postdata(); 
-          endwhile;
-         endif;?>
+        <?wp_reset_postdata();?>
+          
+
+         <?php endforeach; ?>
+         <?php endif; ?>
+         <?endfor?>
              </div>
-             <?}?>
+             
+        <?endfor?>
       </div>
       
       
@@ -82,10 +112,16 @@ $type = $typeSlug[0]->slug;?>
     
     <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 
-
+    
+<script type="text/javascript">let titles = document.querySelectorAll('.event_type_title'); 
+    for(let title of titles){
+      let a =  title.nextSibling.nextSibling
+      if((a.querySelectorAll('.event_box')).length ==0){
+         title.style.display='none';
+        }
+    } </script>
 
 
 
 <?php get_footer(); ?>
-
 
