@@ -32,7 +32,7 @@
 @font-face {
   font-family: Lack-Regular;  
   src: url('../fonts/lack/Lack-Regular.otf');  
-  font-weight: normal;  
+  font-weight: lighter;  
 }
 @font-face {
   font-family: Lack-Line;  

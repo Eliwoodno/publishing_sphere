@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
-<?$pageActu = get_the_title();
+<?$pageActu = get_the_title();?>
 
+<?$termsType = get_terms( array(
+  'taxonomy' => 'tag_event',
+  'orderby' => 'ID',
+  'order' => 'ASC') );?>
 
-
-
-?><div class="banner_wrapper">
+<div class="banner_wrapper">
     <div class="event_banner" style="background-image: url(' <? echo get_field('image_evenement')['url']?>');" title="<?echo get_field('image_evenement')['alt']?>" >
       
     </div>
@@ -13,6 +15,7 @@
     <h1><? echo the_title(); ?></h1>
       <p class="event_hours"><? echo the_field('debut_event'); ?> - <? echo the_field('fin_event'); ?></p>
       <p><?echo the_field('date_evenement');?><p>
+      <p><?echo the_field('lieu_evenement');?><p>
       
     </div>
   </div>

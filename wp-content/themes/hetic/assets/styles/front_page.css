@@ -1,3 +1,10 @@
+.main_banner_wrapper{
+    
+    position: relative;
+
+}
+
+
 .main_banner{
     display: flex;
     flex-direction: column;
@@ -8,11 +15,11 @@
     background-position-y: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    position: relative;
     margin-bottom: 70px;
     text-align: center;
     padding: 0 5% 0 5%;
     margin-top: -70px;
+    filter: blur(4px);
 
 }
 .main_banner::before{
@@ -25,23 +32,39 @@
     top:0;
     left:0;
 }
+.main_banner_text{
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    left: 5%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: Lack-Regular;
+    font-weight: lighter;
+    text-transform: uppercase;
+    
+}
 
-.main_banner h1{
-    font-family: Gotham-Medium;
+.main_banner_text h1{
+    
     font-size: 18px;
     z-index:12;
     margin-top:80px;
     margin-bottom: 20px;
     
 }
-.main_banner h2{
-    font-family: Gotham-Medium;
+.main_banner_text h2{
+    
     font-size: 42px;
     z-index:12;
     margin-bottom: 50px;
 
 }
-.main_banner h3{
+.main_banner_text h3{
     font-family: Gotham-Book;
     font-size: 24px;
     z-index:12;
@@ -154,6 +177,8 @@ iframe{
     margin-bottom: 20px;
     transition: opacity 0.5s ease-out;
     opacity:1;
+    border-radius: 4px;
+    position: relative;
 }
 .event_box.active{
     opacity: 1;
@@ -175,8 +200,22 @@ iframe{
     margin: 0;
     min-height:40px;
     font-family: Gotham-Medium;
+    position: unset;
 }
 
+.planning_container .event_box h4.event_title a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index:0;
+}
+.planning_container .event_box .speaker_link {
+    position: relative;
+    z-index:20;
+}
 
 .planning_container +h4 {
     margin-top:60px;
@@ -246,9 +285,9 @@ h5.day_title, h5.event_type_title{
     padding-right: 5%;
     padding-left: 5%;
     width: 90%;
-    font-family: Gotham-Book;
+    font-family: Lack-Regular;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 24px;
     transition: opacity 0.5s ease-out;
     margin-bottom:20px;
     margin-top:20px;
@@ -257,12 +296,17 @@ h5.day_title, h5.event_type_title{
 .main_planning{
     margin-bottom: 120px;
    }
-   .planning_container .date-svg, .planning_container .location-svg, .planning_container .hour-svg  {
-    width: 21px;
+   .planning_container .date-svg, .planning_container .location-svg, .planning_container .hour-svg, .planning_container .bubble-svg  {
+    width: 18px;
     height: 21px;
     position: relative;
     left: -12px;
     bottom: -5px;
+}
+
+.planning_container .bubble-svg  {
+width: 18px;
+height: 18px;
 }
 .planning_container .event_box p {
     font-family: Gotham-Book;
