@@ -12,6 +12,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<div class='overlay'></div>
   <header>
     <div class="flex-container">
       <a href="<?php echo home_url(); ?>">
