@@ -86,8 +86,7 @@
     margin-bottom: 20px;
     min-height: 200px;
     border-radius:4px;
-    /*transition: opacity 0.5s ease-out;*/
-    /* opacity: 0; */
+    overflow: hidden;
 }
 .speaker_planning_container .event_box .event_img{
     height: 100%;
