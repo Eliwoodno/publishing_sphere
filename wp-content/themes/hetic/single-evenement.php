@@ -14,8 +14,8 @@
     <div class="banner_text">
     <h1><? echo the_title(); ?></h1>
       <p class="event_hours"><? echo the_field('debut_event'); ?> - <? echo the_field('fin_event'); ?></p>
-      <p><?echo the_field('date_evenement');?><p>
-      <p><?echo the_field('lieu_evenement');?><p>
+      <p><?echo the_field('date_evenement');?></p>
+      <p><?echo the_field('lieu_evenement');?></p>
       
     </div>
   </div>
