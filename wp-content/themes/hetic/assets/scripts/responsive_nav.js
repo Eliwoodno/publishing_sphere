@@ -19,10 +19,11 @@ const showMenu = () => {
 showMenu()
 
 
-$('button.hamburger').on('click', () => {
+$('button.hamburger').on('click touchstart', () => {
     $('.overlay').toggleClass('overlay-visible')
     
 })
+
 $('.overlay').on('click', () => {
     $('.overlay').toggleClass('overlay-visible')
     $('button.hamburger').toggleClass('is-active')
