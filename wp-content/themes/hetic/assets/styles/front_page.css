@@ -34,6 +34,7 @@
     left:0;
 }
 .main_banner_text{
+    text-align: center;
     position: absolute;
     width: 90%;
     height: 100%;
@@ -390,6 +391,7 @@ margin-left: 4px;
     .planning_container {
         
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-gap: 20px;
     }
     .active_tags{
         max-width:280px;
