@@ -8,7 +8,8 @@
   'order' => 'ASC') );?>
 
 <div class="banner_wrapper">
-    <div class="event_banner" style="background-image: url(' <? echo get_field('image_evenement')['url']?>');" title="<?echo get_field('image_evenement')['alt']?>" >
+  <? $image_evenement = get_field('image_evenement')?>
+    <div class="event_banner" style="background-image: url(' <? echo $image_evenement['url']?>');" title="<?echo $image_evenement['alt']?>" >
       
     </div>
     <div class="banner_text">
@@ -30,7 +31,8 @@
   <?php setup_postdata($post); ?>
     <div class="event_speaker">
     <a href='<?the_permalink();?>'>
-    <div class="speaker_photo"style="background-image:url('<?echo get_field('photo_intervenant')['url'];?>')"title='<?echo get_field('photo_intervenant')['alt'];?>'></div>
+    <? $photo_intervenant = get_field('photo_intervenant') ?>
+    <div class="speaker_photo"style="background-image:url('<?echo $photo_intervenant['url'];?>')"title='<?echo $photo_intervenant['alt'];?>'></div>
     <p><?the_title();?></p>
     </a>
   </div>
