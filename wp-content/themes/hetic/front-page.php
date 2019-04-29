@@ -80,7 +80,7 @@ LIEU
 <? $termsType = get_terms( array('taxonomy' => 'type_event') );?>
 
 <div>
-<div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/Location.svg') ?>'>TYPE</div>
+<div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/type2.svg') ?>'>TYPE</div>
 <div class="custom-select">
 <select class="type_filter filters" data-filter='type'>
   <? if($currLang == "en-US" ||  $currLang == "en-GB"):?>
