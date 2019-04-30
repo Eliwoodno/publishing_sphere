@@ -2,6 +2,9 @@
     width: 90%;
     padding: 0 5% 0 5%;
 }
+.flex-container-map h3{
+    font-family: Gotham-Light;
+}
 .informations h4, .informations_complementaires h4 {
     padding: 0;
     margin-bottom: 30px;
