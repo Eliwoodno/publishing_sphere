@@ -20,12 +20,12 @@ showMenu()
 
 
 $('button.hamburger').on('click touchstart', () => {
-    $('.overlay').toggleClass('overlay-visible')
+    $('.overlay').addClass('overlay-visible')
     
 })
 
-$('.overlay').on('click', () => {
-    $('.overlay').toggleClass('overlay-visible')
+$('.overlay').on('click touchstart', () => {
+    $('.overlay').removeClass('overlay-visible')
     $('button.hamburger').toggleClass('is-active')
     $('.header_menu').toggleClass('expanded')
 })

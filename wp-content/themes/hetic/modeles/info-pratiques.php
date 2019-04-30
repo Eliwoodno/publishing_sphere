@@ -16,18 +16,27 @@ Template Name: Infos pratiques
     </div>
  
 
-  <?$location = get_field('maps');
+		<?php if( have_rows('locations') ): ?>
+	<div style='flex:50%;'>
+	<div class="acf-map">
+		<?php while ( have_rows('locations') ) : the_row(); 
 
-  if( !empty($location) ):
-?>
-  <div style='flex:50%;'>
-  <div class="acf-map">
-	<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+			$location = get_sub_field('location');
+
+			?>
+			<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+				<h4><?php the_sub_field('title'); ?></h4>
+				<p class="address"><?php echo $location['address']; ?></p>
+				<p><?php the_sub_field('description'); ?></p>
+			</div>
+	<?php endwhile; ?>
 	</div>
 	</div>
 	</div>
-	</div>
+  </div>
 <?php endif; ?>
+
+
 
 <div class='informations_complementaires'>
 <?the_field('informations_complementaires');?>
