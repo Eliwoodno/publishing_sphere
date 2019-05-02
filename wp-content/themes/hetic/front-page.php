@@ -77,7 +77,7 @@ LIEU
 </div>
 </div>
 
-<? $termsType = get_terms( array('taxonomy' => 'type_event') );?>
+<? echo(get_terms( array('taxonomy' => 'type_event') ));?>
 
 <div>
 <div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/type.svg') ?>'>TYPE</div>
