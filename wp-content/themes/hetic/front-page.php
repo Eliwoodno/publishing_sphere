@@ -76,9 +76,7 @@ LIEU
 </select>
 </div>
 </div>
-
-<? echo(get_terms( array('taxonomy' => 'type_event') ));?>
-
+<?($termsType =get_terms( array('taxonomy' => 'type_event') ));?>
 <div>
 <div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/type.svg') ?>'>TYPE</div>
 <div class="custom-select">
@@ -161,20 +159,49 @@ $image = get_field('image_evenement');
 $id = get_the_ID();
 $jourSlug = get_the_terms($id, 'jour');
 $jour = $jourSlug[0]->slug;
+
 $lieuSlug = get_the_terms($id, 'lieu');
-$lieu = $lieuSlug[0]->slug;
+$lieuSlugArray = array();
+for($j = 0; $j < sizeof($lieuSlug); $j++){
+  $lieuSlugArray[$j] = $lieuSlugArray[$j]->slug;
+}
+
 $typeSlug = get_the_terms($id, 'type_event');
-$type = $typeSlug[0]->slug;
+$typeSlugArray = array();
+for($j = 0; $j < sizeof($typeSlug); $j++){
+  $typeSlugArray[$j] = $typeSlug[$j]->slug;
+}
+
 $tagsNames =get_the_terms($id, 'tag_event');
 $tagsNamesArray = array();
 for($j = 0; $j < sizeof($tagsNames); $j++){
   $tagsNamesArray[$j] = $tagsNames[$j]->name;
 }
+
 $speakers = get_field('intervenants');
 
 ?>
 
-<div class="event_box" date="<?echo($jour);?>"location="<?echo($lieu);?>"type="<?echo($type);?>" tags="<?
+<div class="event_box" date="<?echo($jour);?>"
+
+location="<?
+for($k = 0; $k < sizeof($typeSlugArray); $k++){
+  if($lieuSlugArray[$k + 1] === null){
+  echo ($lieuSlugArray[$k]);
+  }else{
+  echo ($lieuSlugArray[$k] .",");
+  }
+}?>" 
+
+type="<?
+for($k = 0; $k < sizeof($typeSlugArray); $k++){
+  if($typeSlugArray[$k + 1] === null){
+  echo ($typeSlugArray[$k]);
+  }else{
+  echo ($typeSlugArray[$k] .",");
+  }
+}?>" 
+tags="<?
 for($k = 0; $k < sizeof($tagsNamesArray); $k++){
   if($tagsNamesArray[$k + 1] === null){
   echo ($tagsNamesArray[$k]);

@@ -4,9 +4,10 @@ add_action('wp_enqueue_scripts', 'ajout_css_js');
 
 function ajout_css_js(){
   //get_template_directory_uri() => racine du theme
-  wp_register_script('jquery1', get_template_directory_uri() . '/assets/scripts/vendor/jquery-3.4.0.min.js', true);
-  wp_enqueue_script('jquery1');
 
+  wp_register_script('jquery1', get_template_directory_uri() . '/assets/scripts/vendor/jquery-3.4.0.min.js',array('jquery'),'1.1', true);
+  wp_enqueue_script('jquery1');
+  
   wp_register_script('main_script', get_template_directory_uri() . '/assets/scripts/main.js', array('jquery'),'1.1', true);
   wp_enqueue_script('main_script');
 
@@ -14,6 +15,8 @@ function ajout_css_js(){
   wp_enqueue_script('responsive_nav_script');
 
   if ( is_front_page()  ) {
+
+  
 
   wp_register_script('planning', get_template_directory_uri() . '/assets/scripts/planning.js', array('jquery'),'1.1', true);
   wp_enqueue_script('planning');
