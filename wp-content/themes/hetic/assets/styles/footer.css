@@ -1,15 +1,13 @@
+
 footer{
     min-height: 240px;
     width: 90%;
     padding: 0 5%;
     font-family: Gotham-book;
-    font-size: 16px;
+    font-size: 12px;
     color: #FFFFFF;
     background-color:#000000 !important;
-    padding-top:40px;
-    
-
-    
+    padding-top:40px; 
 }
 footer .flex-container{
     height: 100%;
@@ -22,7 +20,7 @@ footer .flex-container{
 footer h5{
     text-transform: uppercase;
     color: #D43B3A;
-    font-family: Gotham-Medium;
+    font-family: Lack-Regular;
     font-size: 16px;
     font-weight: normal;
 }
@@ -67,19 +65,7 @@ footer .menu > li > a{
 footer .social_media img{
     width: 20px;
 }
-footer{
-    min-height: 240px;
-    width: 90%;
-    padding: 0 5%;
-    font-family: Gotham-book;
-    font-size: 16px;
-    color: #FFFFFF;
-    background-color:#000000 !important;
-    padding-top:40px;
-    
 
-    
-}
 footer .flex-container{
     height: 100%;
     display:flex;

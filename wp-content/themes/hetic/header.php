@@ -12,14 +12,17 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<div class='overlay'></div>
   <header>
     <div class="flex-container">
       <a href="<?php echo home_url(); ?>">
         <img class="logo" src="<?php the_field('logo', 'options'); ?>" alt="<?php the_field('alt_logo', 'options'); ?>">
       </a>
       <div class="header_menu">
-        <div><? wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?></div>
-        <div><? wp_nav_menu( array( 'theme_location' => 'language-menu' ) ); ?></div>
+       <div style='display:none;'><? wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?></div>
+        <div style='display:none;'><? wp_nav_menu( array( 'theme_location' => 'language-menu' ) ); ?></div>
+        
+        
       </div>
       <button class="hamburger hamburger--squeeze" type="button">
         <span class="hamburger-box">
@@ -27,4 +30,10 @@
         </span>
     </button>
     </div>
+
+    <script type = "text/javascript">
+
+</script>
   </header>
+
+  

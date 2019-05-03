@@ -1,3 +1,3 @@
 # publishing_sphere
 
-Read me 
+A wordpress website for Publishing Sphere's 2019 colloquium in Montreal, Canada.

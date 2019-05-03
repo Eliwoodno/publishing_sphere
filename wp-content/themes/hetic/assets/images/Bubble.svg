@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="16" version="1.1" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>iconmonstr-speech-bubble-7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-6.9%" y="-6.9%" width="113.9%" height="113.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0.88629358   0 0 0 0 0.88629358   0 0 0 0 0.88629358  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+<g class="currentLayer" style=""><title>Layer 1</title><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" class="">
+        <g id="Programme" fill="#4A4A4A">
+            <g id="Cards">
+                <g id="Card2" filter="url(#filter-1)">
+                    <g id="Content">
+                        <g id="Speaker">
+                            <g id="iconmonstr-speech-bubble-7">
+                                <path d="M7.636363640000013,0 C3.4185454500000105,0 0,3.325818179999999 0,7.427636360000008 C0,9.165818179999974 0.5930909090000114,10.766545500000007 1.544454549999955,11.910545500000012 L0,16 L4.812818180000022,14.356363600000009 C10.85509090000005,16.245818200000002 15.272727300000042,11.992000000000019 15.272727300000042,7.427636360000008 C15.272727300000042,3.325818179999999 11.854181799999992,0 7.636363640000013,0 z" id="Path"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g></g></svg>

@@ -5,10 +5,10 @@
 
 <!-- Bandeau  -->
 <?php if ($bandeau):?>
-  <div>
-    <div class="main_banner" style="background-image: url(' <? echo $bandeau['image']['url']?>');" title="<? echo $bandeau['image']['alt'];?>" >
-      <? echo $bandeau['texte'] ?>
-    </div>
+  <div class="main_banner_wrapper">
+    <div class="main_banner" style="background-image: url(' <? echo $bandeau['image']['url']?>');" title="<? echo $bandeau['image']['alt'];?>" ></div>
+    <div class="main_banner_text"><? echo $bandeau['texte'] ?></div>
+    
     
   </div>
 
@@ -77,10 +77,10 @@ LIEU
 </div>
 </div>
 
-<? $termsType = get_terms( array('taxonomy' => 'type_event') );?>
+<? echo(get_terms( array('taxonomy' => 'type_event') ));?>
 
 <div>
-<div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/Location.svg') ?>'>TYPE</div>
+<div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/type.svg') ?>'>TYPE</div>
 <div class="custom-select">
 <select class="type_filter filters" data-filter='type'>
   <? if($currLang == "en-US" ||  $currLang == "en-GB"):?>
@@ -170,6 +170,8 @@ $tagsNamesArray = array();
 for($j = 0; $j < sizeof($tagsNames); $j++){
   $tagsNamesArray[$j] = $tagsNames[$j]->name;
 }
+$speakers = get_field('intervenants');
+
 ?>
 
 <div class="event_box" date="<?echo($jour);?>"location="<?echo($lieu);?>"type="<?echo($type);?>" tags="<?
@@ -180,18 +182,19 @@ for($k = 0; $k < sizeof($tagsNamesArray); $k++){
   echo ($tagsNamesArray[$k] .",");
   }
 }?>">
-  <a class="event_link" href="<? echo the_permalink();?>">
+  
     <div class="event_img" style="background-image:url('<?echo $image['url']?>')" title="<?echo $image['alt']?>"></div>
-    <h4 class="event_title"><? echo the_title()?></h4>
+    <h4 class="event_title"><a class="event_link" href="<? echo the_permalink();?>"><? echo the_title()?></a></h4>
     <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('debut_event'); ?> - <? echo the_field('fin_event'); ?></p>
-    <p><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php the_field('lieu_evenement'); ?></p>
-   </a>
+    <p><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php echo the_field('lieu_evenement'); ?></p>
+    <p><img class='bubble-svg'src='<?echo (IMAGES_URL . '/Bubble.svg')?>'/><?php foreach( $speakers as $post):?><?php setup_postdata($post);?><a class='speaker_link'style='color:black;text-decoration:none;'href='<?echo the_permalink();?>'><?php the_title();?>&#160&#160</a><?php endforeach;?><?php wp_reset_postdata();?></p>
+   
 </div>
 <?php
    
     
     
-	wp_reset_postdata(); 
+
 endwhile;
 endif;?>
 </div>
@@ -201,7 +204,8 @@ endif;?>
 
 <h4 class='dark_filet' ><? echo the_field('titre_diffusion'); ?></h4> 
 <div class="stream_wrapper">
-<?php if(!empty(get_field('youtube'))):
+<?php  $youtube = get_field('youtube');
+ if(!empty($youtube)):
          the_field('youtube');
       else :?>
          <img style='width:100%; height:100%;'src='<?echo the_field('image_live');?>'>
