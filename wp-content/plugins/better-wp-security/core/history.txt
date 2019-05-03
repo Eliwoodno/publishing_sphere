@@ -796,3 +796,5 @@
 	Bug Fix: Properly return error that occurs during a backup.
 	Bug Fix: Regex warning on PHP 7.3 in the File Change module.
 	Bug Fix: Resolve warning when a user is set to "No Role".
+5.1.4 - 2019-03-22 - Chris Jean & Timothy Jacobs
+	Bug Fix: Hide backend bypass.

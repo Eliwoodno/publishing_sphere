@@ -22,7 +22,7 @@ class ITSEC_Hide_Backend {
 		}
 
 
-		add_action( 'init', array( $this, 'handle_specific_page_requests' ), 1000 );
+		add_action( 'itsec_initialized', array( $this, 'handle_specific_page_requests' ), 1000 );
 		add_action( 'signup_hidden_fields', array( $this, 'add_token_to_registration_form' ) );
 		add_action( 'login_enqueue_scripts', array( $this, 'login_enqueue' ) );
 
