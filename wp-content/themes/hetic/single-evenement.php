@@ -13,6 +13,7 @@
       
     </div>
     <div class="banner_text">
+      <div style='position: absolute;bottom: 0px;font-family: Gotham-Light;text-transform: none;font-size: 12px;'><?echo the_field('copyright')?></div>
     <h1><? echo the_title(); ?></h1>
       <p class="event_hours"><? echo the_field('debut_event'); ?> - <? echo the_field('fin_event'); ?></p>
       <p><?echo the_field('date_evenement');?></p>

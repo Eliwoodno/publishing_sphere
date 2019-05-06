@@ -3,7 +3,7 @@
     padding:0 5% 0 5%;
     display: flex;
     margin-top:80px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     
 }
 .speaker_content .speaker_img{
@@ -74,7 +74,8 @@
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     padding-right: 5%;
     padding-left: 5%;
-    grid-gap: 40px;
+    grid-column-gap: 4%;
+    grid-row-gap: 10px;
     width: 90%;
 }
 .speaker_planning_container .event_box {

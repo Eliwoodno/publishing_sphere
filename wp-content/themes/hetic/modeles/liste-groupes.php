@@ -15,7 +15,8 @@ $my_query = new WP_Query($args);?>
 <div class="speakers_container">
 
 <?if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
-    $image = get_field('photo_groupe');?>
+    $image = get_field('photo_groupe');
+    $speakers = get_field('intervenants');?>
     
     <div class="speaker_box">
         <a href="<?the_permalink()?>">

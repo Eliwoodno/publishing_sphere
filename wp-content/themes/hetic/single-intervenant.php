@@ -5,7 +5,7 @@
     $image = get_field('photo_intervenant');?>
 
 <div class="speaker_content">
-  <div class="speaker_img" style="background-image: url('<?echo $image['url'];?>');" title='<?echo $image['alt'];?>'></div>
+  <div class="speaker_img" style="position:relative;background-image: url('<?echo $image['url'];?>');" title='<?echo $image['alt'];?>'><div style='position:absolute;bottom:-20px;font-family:Gotham-Light;font-size:12px;'><? echo the_field('copyright') ;?></div></div>
   <div class="speaker_text">
     <h1><?echo the_title()?></h1>
     <h3><?echo the_field('specialite')?></h3>
@@ -26,7 +26,8 @@
 <?$termsType = get_terms( array(
   'taxonomy' => 'type_event',
   'orderby' => 'ID',
-  'order' => 'ASC') );?>
+  'order' => 'ASC',
+  'hide_empty'=> false) )?>
   <?$termsJour = get_terms( array(
 'taxonomy' => 'jour',
 'orderby' => 'ID',
