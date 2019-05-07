@@ -20,9 +20,8 @@
 <?php
 
 $termsJour = get_terms( array(
-'taxonomy' => 'jour',
-'orderby' => 'ID',
-'order' => 'ASC') );?>
+  'taxonomy' =>  'jour',
+  ) );?>
 <div class="filter_container">
 
 <div>

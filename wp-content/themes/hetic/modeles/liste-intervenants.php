@@ -8,7 +8,10 @@ Template Name: Liste des intervenants
 <?php get_header(); ?>
 
 
-<?php $args = array('post_type' => 'intervenant');
+<?php $args = array(
+'post_type' => 'intervenant',
+'orderby' => 'title',
+'order' => 'ASC');
   
 $my_query = new WP_Query($args);?> 
 <h4 class='dark_filet'><?single_post_title()?></h4>

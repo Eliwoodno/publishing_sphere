@@ -28,10 +28,11 @@
   'orderby' => 'ID',
   'order' => 'ASC',
   'hide_empty'=> false) )?>
-  <?$termsJour = get_terms( array(
+  <?php
+
+$termsJour = get_terms( array(
 'taxonomy' => 'jour',
-'orderby' => 'ID',
-'order' => 'ASC') );?>
+) );?>
 
 <div class="main_planning">
 <?for ($i = 0; $i < sizeof($termsType); $i++):?>
