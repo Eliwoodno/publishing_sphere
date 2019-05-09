@@ -177,7 +177,8 @@ for($j = 0; $j < sizeof($tagsNames); $j++){
   $tagsNamesArray[$j] = $tagsNames[$j]->name;
 }
 
-$speakers = get_field('intervenants');
+
+$speakers = (get_field('intervenants') != NULL ? get_field('intervenants') : 0);
 
 ?>
 
@@ -213,8 +214,9 @@ for($k = 0; $k < sizeof($tagsNamesArray); $k++){
     <h4 class="event_title"><a class="event_link" href="<? echo the_permalink();?>"><? echo the_title()?></a></h4>
     <p class="event_hours"><img class='hour-svg'src='<?echo (IMAGES_URL . '/Clock.svg')?>'><? echo the_field('debut_event'); ?> - <? echo the_field('fin_event'); ?></p>
     <p><img class='location-svg'src='<?echo (IMAGES_URL . '/Location.svg')?>'><?php echo the_field('lieu_evenement'); ?></p>
+    <?if($speakers !=0){?>
     <p><img class='bubble-svg'src='<?echo (IMAGES_URL . '/Bubble.svg')?>'/><?php foreach( $speakers as $post):?><?php setup_postdata($post);?><a class='speaker_link'style='color:black;text-decoration:none;'href='<?echo the_permalink();?>'><?php the_title();?>&#160&#160</a><?php endforeach;?><?php wp_reset_postdata();?></p>
-   
+    <?}?>
 </div>
 <?php
    
