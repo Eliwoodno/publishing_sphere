@@ -17,7 +17,7 @@ const displayEventBoxes = (box) =>{
   box.offsetHeight;
   box.style.opacity = 0
  if(box.getAttribute('date') == activeFilters.date || activeFilters.date ==''){
- if(box.getAttribute('location') .split(",").includes(activeFilters.location) || activeFilters.location ==''){
+ if(box.getAttribute('location') == activeFilters.location || activeFilters.location ==''){
 if(box.getAttribute('type').split(",").includes(activeFilters.type) || activeFilters.type ==''){
 if( arrayComparator(((box.getAttribute('tags')).split(",")),activeFilters.tags) || (activeFilters.tags).length ==0){
 //check if activeFilters.tags is present is tag attribute

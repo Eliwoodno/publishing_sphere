@@ -160,10 +160,7 @@ $jourSlug = get_the_terms($id, 'jour');
 $jour = $jourSlug[0]->slug;
 
 $lieuSlug = get_the_terms($id, 'lieu');
-$lieuSlugArray = array();
-for($j = 0; $j < sizeof($lieuSlug); $j++){
-  $lieuSlugArray[$j] = $lieuSlugArray[$j]->slug;
-}
+$lieu = $lieuSlug[0]->slug;
 
 $typeSlug = get_the_terms($id, 'type_event');
 $typeSlugArray = array();
@@ -184,14 +181,7 @@ $speakers = (get_field('intervenants') != NULL ? get_field('intervenants') : 0);
 
 <div class="event_box" date="<?echo($jour);?>"
 
-location="<?
-for($k = 0; $k < sizeof($typeSlugArray); $k++){
-  if($lieuSlugArray[$k + 1] === null){
-  echo ($lieuSlugArray[$k]);
-  }else{
-  echo ($lieuSlugArray[$k] .",");
-  }
-}?>" 
+location="<?echo($lieu);?>"
 
 type="<?
 for($k = 0; $k < sizeof($typeSlugArray); $k++){
