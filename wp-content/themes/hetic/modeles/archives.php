@@ -4,16 +4,18 @@ Template Name: Archives
 */
 
 ?> 
+<div style='display:flex;flex-direction:column;min-height: 100vh;'class='site_wrapper'>
 <?php get_header(); ?>
-<div class='archive_wrapper'>
-   <h4 class='dark_filet'>Archives</h4>
+<div style='flex:1;'class='archive_wrapper'>
+   
 <?php 
 
 
-if( have_rows('archives') ):
+if( have_rows('archives') ):?>
 
- 	// loop through the rows of data
-    while ( have_rows('archives') ) : the_row();
+   <h4 class='dark_filet'>Archives</h4> 
+
+   <? while ( have_rows('archives') ) : the_row();
 
       $type_archive = get_sub_field('type_archive'); 
   
@@ -48,12 +50,37 @@ if( have_rows('archives') ):
 
     endwhile;
 
-else :
+else :?>
+   <style type="text/css">
 
-the_field('texte_information');
+.error{
+    font-size:28px;
+    font-family: Gotham-Book;
+    text-align:center;
+    margin-bottom:20px;
+}
+.error_message{
+    font-size:20px;
+    font-family: Gotham-Light;
+    text-align:center;
+    margin-bottom:40px;
+}
 
-endif;
+</style>
+<?$currLang = get_bloginfo('language');?>
+<? if($currLang == "en-US" ||  $currLang == "en-GB"){?>
+   <div class='error'>Page unavailable</div>
+<?}?>
+<? if($currLang == "fr-FR"){?>
+   <div class='error'>Page indisponible</div>
+<?}?>
+
+   <div class='error_message'><? echo the_field('texte_information');?></div>
+
+
+<?endif;
 
 ?>
 </div>
 <?php get_footer(); ?>
+</div>

@@ -1,30 +1,17 @@
 <?php
 /*
-Template Name: A propos
+Template Name: Planning
 */
 
 ?> 
 
 <?php get_header(); ?>
 <?$currLang = get_bloginfo('language');?>
-
-<?php 
-$image = get_field('image_presentation'); ?>
-<div class='about_img'style="background-image:url('<?echo $image['url'];?>')" title='<?echo $image['alt'];?>'></div>
-
-<div class='about_description'>
-<?
-the_field('informations');
-?>
-</div>
-
-<h4 class='dark_filet'>Planning</h4>
-
 <?php
 
 $termsJour = get_terms( array(
-'taxonomy' => 'jour',
-) );?>
+  'taxonomy' =>  'jour',
+  ) );?>
 <div class="filter_container">
 
 <div>
@@ -78,9 +65,7 @@ LIEU
 </select>
 </div>
 </div>
-
-<? $termsType = get_terms( array('taxonomy' => 'type_event') );?>
-
+<?($termsType =get_terms( array('taxonomy' => 'type_event') ));?>
 <div>
 <div class="filter_title" ><img class='type-svg'src='<?echo (IMAGES_URL . '/type.svg') ?>'>TYPE</div>
 <div class="custom-select">
@@ -179,6 +164,7 @@ for($j = 0; $j < sizeof($tagsNames); $j++){
   $tagsNamesArray[$j] = $tagsNames[$j]->name;
 }
 
+
 $speakers = (get_field('intervenants') != NULL ? get_field('intervenants') : 0);
 
 ?>
@@ -216,11 +202,15 @@ for($k = 0; $k < sizeof($tagsNamesArray); $k++){
    
     
     
-	wp_reset_postdata(); 
+
 endwhile;
 endif;?>
 </div>
 <?}?>
-</div >
+</div >  
+
+
+
+
 
 <?php get_footer(); ?>

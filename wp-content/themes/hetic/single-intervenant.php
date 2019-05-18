@@ -3,13 +3,41 @@
 <?php
     $i = 0;
     $image = get_field('photo_intervenant');?>
-
+<?php $args = array(
+'post_type' => 'intervenant',
+'orderby' => 'title',
+'order' => 'ASC');
+  
+$my_query = new WP_Query($args);?> 
 <div class="speaker_content">
+ <div style='display:none;'class='previous_speaker_wp'><?echo previous_post_link();?></div> 
+ <div style='display:none;'class='next_speaker_wp'><?echo next_post_link();?></div> 
+<a class='previous_speaker' href='#'></a>
+<a class='next_speaker' href='#'></a>
+<script type="text/javascript">
+
+let previousLinkTemplate = document.querySelector('.previous_speaker_wp a')
+let nextLinkTemplate = document.querySelector('.next_speaker_wp a')
+let previousLink = document.querySelector('.previous_speaker')
+let nextLink = document.querySelector('.next_speaker')
+if(previousLinkTemplate != null){
+previousLink.setAttribute('href', previousLinkTemplate.getAttribute('href'))
+} else{
+  previousLink.style.display = 'none'
+}
+if(nextLinkTemplate != null){
+nextLink.setAttribute('href', nextLinkTemplate.getAttribute('href'))
+}else{
+  nextLink.style.display = 'none'
+}
+</script>
   <div class="speaker_img" style="position:relative;background-image: url('<?echo $image['url'];?>');" title='<?echo $image['alt'];?>'><div style='position:absolute;bottom:-20px;font-family:Gotham-Light;font-size:12px;'><? echo the_field('copyright') ;?></div></div>
   <div class="speaker_text">
     <h1><?echo the_title()?></h1>
     <h3><?echo the_field('specialite')?></h3>
     <p><? echo the_field('description_intervenant')?></p>
+    
+    
     
  
     <div class="speaker_links">

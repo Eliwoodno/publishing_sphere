@@ -41,6 +41,16 @@ function ajout_css_js(){
     wp_enqueue_script('custom_select_input');
   }
 
+  if ( is_page('planning') || is_page('planning-fr') ) {
+    wp_register_script('planning', get_template_directory_uri() . '/assets/scripts/planning.js', array('jquery'),'1.1', true);
+    wp_enqueue_script('planning');
+    
+    wp_register_script('custom_select_input', get_template_directory_uri() . '/assets/scripts/custom_select_input.js', array('jquery'),'1.1', true);
+    wp_enqueue_script('custom_select_input');
+  }
+
+  
+
   wp_register_style( 'slick', get_template_directory_uri() . '/assets/styles/vendor/slick.css' );
   wp_enqueue_style( 'slick' );
 
