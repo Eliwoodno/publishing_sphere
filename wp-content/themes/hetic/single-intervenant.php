@@ -10,8 +10,8 @@
   
 $my_query = new WP_Query($args);?> 
 <div class="speaker_content">
- <div style='display:none;'class='previous_speaker_wp'><?echo previous_post_link();?></div> 
- <div style='display:none;'class='next_speaker_wp'><?echo next_post_link();?></div> 
+ <div style='display:none;'class='previous_speaker_wp'><?echo next_post_link();?></div> 
+ <div style='display:none;'class='next_speaker_wp'><?echo previous_post_link();?></div> 
 <a class='previous_speaker' href='#'></a>
 <a class='next_speaker' href='#'></a>
 <script type="text/javascript">

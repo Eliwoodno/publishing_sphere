@@ -177,3 +177,19 @@ left:95%;
     }
 }
 
+@media (max-width: 992px) { 
+
+    .next_speaker{
+
+        display: none;
+        
+        }
+        
+        .previous_speaker{
+        
+            display: none;
+            
+            }
+
+}
+
