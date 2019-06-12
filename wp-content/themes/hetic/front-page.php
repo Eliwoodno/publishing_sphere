@@ -219,17 +219,6 @@ endif;?>
 <?}?>
 </div >
 <!-- Direct  -->
-
-<h4 class='dark_filet' ><? echo the_field('titre_diffusion'); ?></h4> 
-<div class="stream_wrapper">
-<?php  $youtube = get_field('youtube');
- if(!empty($youtube)):
-         the_field('youtube');
-      else :?>
-         <img style='width:100%; height:100%;'src='<?echo the_field('image_live');?>'>
- <? endif ; ?>
-</div>
-
 <!-- Partenaires  -->
 <h4 class='dark_filet' ><? echo the_field('titre_sponsors'); ?></h4> 
 <div class="sponsor-slider">
